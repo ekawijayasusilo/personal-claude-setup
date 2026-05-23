@@ -1,67 +1,70 @@
-# Profile Headline Formulas
+# Profile Headline Formulas (Job Seekers)
 
-**Character limit:** 220. Use all of them.
+**Character limit:** 220. Use all of them — every char is recruiter-search real estate.
 
 ## The formula
 
-```
-[What You Do] | [Who You Help] [Achieve What Result]
+```text
+[Target Role / Specialty] | [Industry / Domain] | [Signal Keyword or Concrete Result]
 ```
 
 Three parts separated by `|`. Each part does one job:
-- **What You Do** — your actual function, not your title
-- **Who You Help** — the specific audience
-- **Achieve What Result** — the concrete outcome
+
+- **Target Role / Specialty** — the job title you're applying for (not necessarily your current title)
+- **Industry / Domain** — where you want to work next
+- **Signal Keyword or Concrete Result** — a tech, methodology, or proof point recruiters search for
 
 ## Rules
 
-1. **Lead with value, not title.** "Helping B2B founders book 40% more demos" beats "VP of Marketing".
-2. **Be specific about who you help.** "B2B SaaS founders 1-10M ARR" beats "business owners".
-3. **Include keywords recruiters search for.** Search-matched headlines appear in 3x more recruiter results.
-4. **No filler adjectives.** Cut "passionate", "driven", "results-oriented".
-5. **Capitalize names, products, companies** — "Claude", "HubSpot", "Co.Actor".
+1. **Lead with the target role, not the current title.** If you're a Senior Engineer applying for Staff roles, lead with "Staff Software Engineer". If you're pivoting, lead with the destination, not the origin.
+2. **Be specific about industry.** "B2B SaaS" beats "tech". "Healthcare IT" beats "healthcare". "FinTech payments" beats "finance".
+3. **Pack keywords recruiters actually search for.** Mirror the language of the target role's job descriptions — tools, methodologies, certifications, frameworks.
+4. **No filler adjectives.** Cut "passionate", "driven", "results-oriented" (see SKILL.md §Hard rules).
+5. **Capitalize names, products, technologies** — "Python", "Figma", "AWS", "Stripe".
 
-## Before → After
+## Before → After (job-seeker examples)
 
-### For a marketer
+### Marketer applying for Senior Marketing Manager roles
 
 - ❌ "Marketing Manager at Company X"
-- ✅ "Helping B2B SaaS companies close 40% more deals | Sales Director at TechCorp"
+- ✅ "Senior B2B Marketing Manager | SaaS & Demand Gen | Cut CAC 40%, $2M pipeline contribution"
 
-### For a founder
+### Founder pivoting to an in-house Product role
 
 - ❌ "Founder & CEO"
-- ✅ "Building tools that help creators monetize | Founder at CreatorLab"
+- ✅ "Head of Product (ex-Founder) | B2B SaaS | Shipped 0→$2M ARR, scaled team to 12"
 
-### For a consultant
+### Consultant moving to a full-time Marketing Lead role
 
 - ❌ "Marketing Consultant"
-- ✅ "I help service businesses get clients without ads | Marketing Consultant"
+- ✅ "Marketing Lead | B2B Services & SaaS | Demand Gen, ABM, Lifecycle Marketing"
 
-### For a developer
+### Software engineer applying for AI / staff-level roles
 
 - ❌ "Senior Software Engineer"
-- ✅ "Shipping AI agents for B2B ops teams | Senior Engineer at StackCo"
+- ✅ "Staff Software Engineer | AI / B2B SaaS | Python, RAG, Agentic Systems, Distributed Systems"
 
-### For an executive
+### Engineering exec applying for VP/CTO roles
 
 - ❌ "CTO | VP Engineering | Technology Leader"
-- ✅ "Helping fintechs scale past $100M ARR | CTO at PaymentCo"
+- ✅ "VP Engineering → CTO | FinTech & Payments | Scaled eng 5→80, shipped 3 zero-to-one platforms"
 
-## Anti-patterns (auto-fail)
+## Section-specific anti-patterns
 
-- "Passionate thought leader" — empty signal
-- "Driven professional" — empty
-- "10+ years of experience in..." — nobody searches this
-- All-caps headlines
+For general voice / AI-slop anti-patterns, see SKILL.md §Hard rules. Headline-specific anti-patterns:
+
+- "Open to Work" in the headline text — use the dedicated badge, not headline real estate
 - Emoji chains (🚀🔥💡) — read as low-effort
-- Generic "Open to Work" framing (move that to the banner badge, not headline)
+- All-caps headlines or sections in ALL CAPS
+- "10+ years of experience in..." — nobody searches this; convert to a concrete proof point instead
+- Listing every past title chained with pipes — three identities is the cap
 
 ## Search-keyword placement
 
-LinkedIn search indexes the headline heavily. If you want to appear in search for a role or topic:
-- Include the target role noun ("CTO", "Head of Marketing", "AI Consultant")
-- Include the target industry ("B2B SaaS", "Healthcare IT", "FinTech")
-- Include your specialty keyword ("RAG", "agentic workflows", "demand gen")
+LinkedIn indexes the headline heavily for recruiter search. If you want to appear for a specific role:
 
-Profiles with 5+ target keywords in the headline + About: **3x more recruiter search impressions**.
+- Include the **target role noun** ("Staff Engineer", "Head of Product", "Senior Designer")
+- Include the **target industry** ("B2B SaaS", "FinTech", "Healthcare IT")
+- Include your **specialty keyword** ("Design Systems", "RAG", "Growth", "Lifecycle Marketing")
+
+Match the language used in 3–5 target job descriptions. If three out of five postings say "Lifecycle Marketing" and your headline says "Email & CRM Marketing", you lose the search match even though you do the same work.
