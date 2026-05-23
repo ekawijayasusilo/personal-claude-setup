@@ -1,0 +1,67 @@
+This skill consolidates content from two upstream sources. Their original
+licences and attributions are reproduced below.
+
+================================================================================
+SOURCE 1: Rules for Natural Writing (Flutter Authors)
+================================================================================
+
+Originally distributed as the `natural-writing` skill. Reproduced here under the
+upstream BSD-style licence:
+
+Copyright 2026 The Flutter Authors. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors
+   may be used to endorse or promote products derived from this software without
+   specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+================================================================================
+SOURCE 2: Signs of AI writing (Wikipedia / WikiProject AI Cleanup)
+================================================================================
+
+Originally distributed as the `humanizer` skill (MIT-licensed adaptation of
+Wikipedia content). The skill content is derived from:
+
+  https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing
+
+Wikipedia text is dual-licensed under:
+
+  - Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0):
+    https://creativecommons.org/licenses/by-sa/4.0/
+
+  - GNU Free Documentation License (GFDL):
+    https://www.gnu.org/licenses/fdl-1.3.html
+
+Content derived from that source carries the same dual licence here. Attribution
+is given to the contributors of the Wikipedia article and to WikiProject AI
+Cleanup, which maintains it.
+
+================================================================================
+Consolidation notes
+================================================================================
+
+The current `de-slop` skill combines these two sources into a single
+deduplicated catalogue, with some content cut (factually-incorrect hyphenation
+guidance, opinion/voice-injection guidance that fell outside the skill's
+scope) and softening of rule framing where the upstream wording was overly
+absolute. See the plugin's history for the consolidation rationale.

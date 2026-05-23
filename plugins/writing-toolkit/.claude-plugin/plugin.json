@@ -1,11 +1,22 @@
 {
   "name": "writing-toolkit",
-  "version": "0.1.0",
-  "description": "Skills for writing well.",
+  "version": "0.2.0",
+  "description": "Skills for writing high-quality human-readable documents: sentence-level clarity, anti-AI-slop, audience awareness, document structure, and tech-doc templates (RFC, ADR).",
   "author": {
     "name": "Eka Wijaya Susilo",
     "email": "ekawijayasusilo@gmail.com"
   },
   "license": "MIT",
-  "keywords": ["writing", "prose", "editing", "style", "humanize"]
+  "keywords": [
+    "writing",
+    "prose",
+    "editing",
+    "style",
+    "humanize",
+    "documentation",
+    "templates",
+    "rfc",
+    "adr",
+    "audience"
+  ]
 }
