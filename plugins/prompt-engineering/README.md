@@ -1,10 +1,10 @@
 # prompt-engineering
 
-A Claude Code plugin that ships a single skill teaching advanced prompt engineering patterns — few-shot learning, chain-of-thought, system prompt design, agent prompting best practices, and persuasion principles for compliance — for use when writing commands, hooks, skills, or sub-agent prompts.
+A Claude Code plugin that ships a single skill for refining and polishing input prompts — structuring with XML tags, few-shot examples, explicit output formats, calibrated instruction strictness, and delimiting untrusted input — to improve LLM output quality, consistency, and structure.
 
 ## Skill
 
-- **prompt-engineering** — triggers when writing or optimizing commands, hooks, skills, sub-agent prompts, or any other LLM prompt template.
+- **prompt-engineering** — triggers when refining, polishing, or rewriting an input prompt (e.g., "improve this prompt", "why isn't this prompt working", "make this prompt better").
 
 ## Installation
 
@@ -12,4 +12,4 @@ Load this plugin via your Claude Code marketplace configuration, or point Claude
 
 ## Attribution
 
-Skill content adapted verbatim from NeoLabHQ/context-engineering-kit.
+Skill content adapted from NeoLabHQ/context-engineering-kit.
