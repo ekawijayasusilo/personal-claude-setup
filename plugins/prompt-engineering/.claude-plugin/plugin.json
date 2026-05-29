@@ -1,7 +1,7 @@
 {
   "name": "prompt-engineering",
   "version": "0.1.0",
-  "description": "Prompt engineering patterns and best practices for writing commands, hooks, skills, and sub-agent prompts.",
+  "description": "Refine and polish input prompts — XML structuring, few-shot examples, output formats, instruction strictness, and untrusted-input delimiting — to improve LLM output quality and consistency.",
   "author": {
     "name": "Eka Wijaya Susilo",
     "email": "ekawijayasusilo@gmail.com"

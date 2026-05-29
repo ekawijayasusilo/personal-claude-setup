@@ -102,7 +102,7 @@ and check adherence to project conventions.
 
 ### 4. Output format specification
 
-State the expected output structure explicitly. Modern AI models tend to be more literal in following instructions — if you want a behavior applied to *every* section, say so explicitly ("apply this to every section, not just the first").
+State the expected output structure explicitly. Modern AI models tend to be literal — if you want a behavior applied to *every* section, say so ("apply this to every section, not just the first").
 
 Specify: schema (for structured output), length bounds, required fields, formatting rules, and what to do when information is missing.
 
@@ -147,12 +147,11 @@ Move to the next level only when the current one fails on real inputs.
 - **Be specific.** Vague prompts produce inconsistent results.
 - **Show, don't tell.** Examples beat descriptions.
 - **Change one thing at a time.** When refining, isolate which change made the difference.
-- **Stay concise.** Modern AI models support large context windows (hundreds of thousands to over a million tokens depending on model), but each token competes with other content sharing the window — every token should earn its place.
+- **Stay concise.** Modern AI models support large context windows, but each token competes with other content sharing the window — every token should earn its place.
 - **Match style to fragility.** Use low / medium / high freedom appropriately.
 
 ## Common pitfalls
 
-- **Over-engineering** — Starting with a complex prompt before trying a simple one.
 - **Example pollution** — Few-shot examples that don't match the target task confuse the model.
 - **Ambiguous instructions** — Leaving room for multiple interpretations.
 - **Ignoring edge cases** — Not testing on unusual or boundary inputs.
