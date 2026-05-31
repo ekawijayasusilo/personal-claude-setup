@@ -7,22 +7,14 @@ description: Use when refining, polishing, or rewriting an input prompt to impro
 
 Practical techniques for refining input prompts so they produce more consistent, accurate, and useful LLM outputs.
 
-## When to use this skill
+## How to refine a prompt
 
-**Trigger on:**
+Refining isn't applying every technique — it's diagnosing what's actually weak and fixing that. Most prompts need two or three of the techniques below, not all of them.
 
-- "Improve this prompt"
-- "Why isn't this prompt working?"
-- "Make this prompt better"
-- "Help refine this prompt"
-- "Convert this vague instruction into a structured prompt"
-- A prompt that produces inconsistent or wrong-format output
-
-**Do NOT trigger on:**
-
-- General questions about how LLMs work
-- API/SDK configuration (caching, stop sequences, temperature, thinking budgets)
-- Designing agent instructions, hooks, or commands (different skill)
+1. **Diagnose first.** Name what's failing the prompt: ambiguous goal, no output format, missing context, no examples where the format is fragile, or untrusted input mixed in with instructions. The diagnosis decides which techniques are relevant.
+2. **Ask when context is missing.** A good rewrite often depends on facts the prompt omits — the target model, what the current output got wrong, and whether this is a one-shot prompt or a reusable template. If the answer would change your rewrite, ask before rewriting. One or two questions, not an interrogation.
+3. **Apply only what's weak.** Change what's failing; leave what works. A prompt that already states its format cleanly doesn't need an XML overhaul.
+4. **Deliver the prompt first, then the rationale.** Lead with the rewritten prompt so it's copy-pasteable, then add a short note on what changed and why — so the user can judge the edits and reuse the pattern.
 
 ## Core techniques
 
@@ -142,18 +134,11 @@ Don't start with a maximally complex prompt. Layer in only what's needed:
 
 Move to the next level only when the current one fails on real inputs.
 
-## Best practices
+## Pitfalls and reminders
 
-- **Be specific.** Vague prompts produce inconsistent results.
-- **Show, don't tell.** Examples beat descriptions.
-- **Change one thing at a time.** When refining, isolate which change made the difference.
-- **Stay concise.** Modern AI models support large context windows, but each token competes with other content sharing the window — every token should earn its place.
-- **Match style to fragility.** Use low / medium / high freedom appropriately.
-
-## Common pitfalls
-
-- **Example pollution** — Few-shot examples that don't match the target task confuse the model.
-- **Ambiguous instructions** — Leaving room for multiple interpretations.
-- **Ignoring edge cases** — Not testing on unusual or boundary inputs.
-- **Adding generic "think step by step" to reasoning models** — Redundant when the model reasons natively, and it clutters the output with duplicated reasoning. If you do want visible reasoning, request specific artifacts instead — key assumptions, decision criteria, or a short verification summary.
-- **Reaching for runtime knobs** — Caching, thinking budgets, and stop sequences are *not* the fix when the prompt text is what's failing.
+- **Change one thing at a time.** When refining, isolate which change made the difference — otherwise you can't tell what actually worked.
+- **Stay concise.** Large context windows don't make tokens free; each one competes with everything else sharing the window, so every token should earn its place.
+- **Test the edge cases.** A prompt that works on the typical input often breaks on the unusual or boundary one — check those before calling it done.
+- **Don't pollute with off-target examples.** Few-shot examples that don't match the task confuse the model more than no examples at all.
+- **Don't tell reasoning models to "think step by step."** It's redundant when the model reasons natively and clutters the output with duplicated reasoning. If you want visible reasoning, request specific artifacts instead — key assumptions, decision criteria, or a short verification summary.
+- **Don't reach for runtime knobs to fix prompt problems.** Caching, thinking budgets, and stop sequences won't fix prompt text that's failing — fix the wording first.
