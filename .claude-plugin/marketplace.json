@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "linkedin-toolkit",
-      "description": "Skills for auditing and rewriting LinkedIn profiles end-to-end using 2026 best practices.",
+      "description": "Skills that audit and rewrite LinkedIn profiles end-to-end against 2026 best practices.",
       "author": {
         "name": "Eka Wijaya Susilo"
       },
@@ -24,6 +24,15 @@
       },
       "category": "writing",
       "source": "./plugins/writing-toolkit"
+    },
+    {
+      "name": "prompt-engineering",
+      "description": "Refine and polish input prompts — XML structuring, few-shot examples, output formats, instruction strictness, and untrusted-input delimiting — to improve LLM output quality and consistency.",
+      "author": {
+        "name": "Eka Wijaya Susilo"
+      },
+      "category": "writing",
+      "source": "./plugins/prompt-engineering"
     }
   ]
 }
