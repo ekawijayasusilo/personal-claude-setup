@@ -10,10 +10,9 @@
 ### Composition checklist (job-seeker)
 
 - High contrast background (pure white, pure black, single solid color — not noisy photos)
-- Target-role tagline in bold type — e.g., "Staff Software Engineer · AI / B2B SaaS"
+- Target-role tagline in bold type — e.g., "Staff Software Engineer · Distributed Systems · Go"
 - One subtle differentiator: a portfolio URL, an "Open to [Role] roles" line, or a single signature visual (a project screenshot, not a stock photo)
 - Optional: small monogram / initial mark — but skip a corporate-style logo unless you have a personal brand
-- No "Book a call →" or service-pitch CTA — those mis-signal to recruiters that you want clients, not jobs
 
 ### Mobile crop test
 

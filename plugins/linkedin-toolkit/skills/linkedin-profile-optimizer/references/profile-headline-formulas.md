@@ -1,70 +1,82 @@
-# Profile Headline Formulas (Job Seekers)
+# Profile Headline Formulas (Software-Engineer Job Seekers)
 
-**Character limit:** 220. Use all of them — every char is recruiter-search real estate.
+**Character limit:** 220. **Use the space efficiently — not maximally.** A tight 140-char headline that says exactly what role you want and why a recruiter should care beats 220 chars of padded keywords.
 
 ## The formula
 
 ```text
-[Target Role / Specialty] | [Industry / Domain] | [Signal Keyword or Concrete Result]
+[Target Role / Specialty] | [Industry / Domain or Stack] | [Signal Keyword or Concrete Result]
 ```
 
 Three parts separated by `|`. Each part does one job:
 
 - **Target Role / Specialty** — the job title you're applying for (not necessarily your current title)
-- **Industry / Domain** — where you want to work next
-- **Signal Keyword or Concrete Result** — a tech, methodology, or proof point recruiters search for
+- **Industry / Domain or Stack** — where you want to work next, or the technical stack that defines your work
+- **Signal Keyword or Concrete Result** — a technology, methodology, or proof point recruiters actually search for
 
 ## Rules
 
-1. **Lead with the target role, not the current title.** If you're a Senior Engineer applying for Staff roles, lead with "Staff Software Engineer". If you're pivoting, lead with the destination, not the origin.
-2. **Be specific about industry.** "B2B SaaS" beats "tech". "Healthcare IT" beats "healthcare". "FinTech payments" beats "finance".
-3. **Pack keywords recruiters actually search for.** Mirror the language of the target role's job descriptions — tools, methodologies, certifications, frameworks.
+1. **Lead with the target role, not the current title.** If you're a Senior Engineer applying for Staff roles, lead with "Staff Software Engineer". If you're pivoting (e.g., Backend → ML), lead with the destination.
+2. **Be specific.** "B2B SaaS" beats "tech". "Python / Django" beats "web". "FinTech payments" beats "finance".
+3. **Pack keywords recruiters actually search for.** Mirror the language of 3–5 target job descriptions (see `jd-keyword-workflow.md`).
 4. **No filler adjectives.** Cut "passionate", "driven", "results-oriented" (see SKILL.md §Hard rules).
-5. **Capitalize names, products, technologies** — "Python", "Figma", "AWS", "Stripe".
+5. **Capitalize technologies and product names** — "Python", "PostgreSQL", "Kubernetes", "Figma", "AWS".
+6. **Front-load the must-include terms.** Mobile preview shows only the first ~100 chars; the top 3 JD-must-include terms should land in that window.
 
-## Before → After (job-seeker examples)
+## Before → After (SWE-focused examples)
 
-### Marketer applying for Senior Marketing Manager roles
+### Mid-level backend engineer applying for senior backend roles
 
-- ❌ "Marketing Manager at Company X"
-- ✅ "Senior B2B Marketing Manager | SaaS & Demand Gen | Cut CAC 40%, $2M pipeline contribution"
+- ❌ "Software Engineer at Company X"
+- ✅ "Senior Backend Engineer | B2B SaaS, Distributed Systems | Go, PostgreSQL, Kafka — cut p99 latency 68% on multi-tenant pipeline"
 
-### Founder pivoting to an in-house Product role
+### Senior frontend engineer applying for staff product-engineering roles
 
-- ❌ "Founder & CEO"
-- ✅ "Head of Product (ex-Founder) | B2B SaaS | Shipped 0→$2M ARR, scaled team to 12"
+- ❌ "Senior Frontend Engineer"
+- ✅ "Staff Product Engineer | B2C Web | React, TypeScript, Design Systems — shipped 0→1 onboarding, +23% activation"
 
-### Consultant moving to a full-time Marketing Lead role
+### Full-stack engineer pivoting to AI / ML platform roles
 
-- ❌ "Marketing Consultant"
-- ✅ "Marketing Lead | B2B Services & SaaS | Demand Gen, ABM, Lifecycle Marketing"
+- ❌ "Full-Stack Engineer at StartupCo"
+- ✅ "ML Platform Engineer (ex-Full-Stack) | LLM Eval, RAG, Inference | Python, PyTorch, Ray — shipped agent eval framework used by 6 teams"
 
-### Software engineer applying for AI / staff-level roles
+### Platform / SRE engineer applying for senior platform roles
 
-- ❌ "Senior Software Engineer"
-- ✅ "Staff Software Engineer | AI / B2B SaaS | Python, RAG, Agentic Systems, Distributed Systems"
+- ❌ "DevOps Engineer"
+- ✅ "Senior Platform Engineer | Reliability, Observability | Kubernetes, Terraform, Datadog — cut p95 deploy time 4h → 12 min"
 
-### Engineering exec applying for VP/CTO roles
+### Staff engineer applying for principal IC roles
 
-- ❌ "CTO | VP Engineering | Technology Leader"
-- ✅ "VP Engineering → CTO | FinTech & Payments | Scaled eng 5→80, shipped 3 zero-to-one platforms"
+- ❌ "Staff Software Engineer | Tech Leader"
+- ✅ "Principal Software Engineer | Platform / Distributed Systems | Go, Postgres, Kafka — led 3-team migration, 99.99% SLO"
+
+### Engineering manager applying for senior EM / director roles
+
+- ❌ "Engineering Manager"
+- ✅ "Senior Engineering Manager | Platform / Backend | Scaled team 5→14, 18-month retention >90%, shipped 3 zero-to-one platforms"
+
+### Non-SWE example (formula generalizes)
+
+The formula works for adjacent technical roles where the job-seeker context applies:
+
+- ❌ "Product Manager"
+- ✅ "Senior Technical PM | Developer Tools, API Platforms | Shipped public API used by 3K+ teams"
 
 ## Section-specific anti-patterns
 
 For general voice / AI-slop anti-patterns, see SKILL.md §Hard rules. Headline-specific anti-patterns:
 
-- "Open to Work" in the headline text — use the dedicated badge, not headline real estate
+- "Open to Work" in the headline text — use the dedicated badge (or recruiters-only mode for discreet searches; see `search-modes.md`)
 - Emoji chains (🚀🔥💡) — read as low-effort
 - All-caps headlines or sections in ALL CAPS
 - "10+ years of experience in..." — nobody searches this; convert to a concrete proof point instead
-- Listing every past title chained with pipes — three identities is the cap
+- Chaining every past title with pipes — three identities is the cap
+- Padding to 220 chars with weak keywords just to "fill space" — tight beats padded
 
 ## Search-keyword placement
 
-LinkedIn indexes the headline heavily for recruiter search. If you want to appear for a specific role:
+For the full keyword-extraction workflow, see `jd-keyword-workflow.md`. The minimum:
 
-- Include the **target role noun** ("Staff Engineer", "Head of Product", "Senior Designer")
-- Include the **target industry** ("B2B SaaS", "FinTech", "Healthcare IT")
-- Include your **specialty keyword** ("Design Systems", "RAG", "Growth", "Lifecycle Marketing")
-
-Match the language used in 3–5 target job descriptions. If three out of five postings say "Lifecycle Marketing" and your headline says "Email & CRM Marketing", you lose the search match even though you do the same work.
+- Include the **target role noun** ("Staff Engineer", "ML Platform Engineer", "Senior Backend Engineer")
+- Include the **target industry or stack** ("B2B SaaS", "FinTech", "Go + Postgres + Kafka")
+- Include 1–2 **specialty keywords** drawn from real JDs ("Distributed Systems", "RAG", "Design Systems", "Observability")

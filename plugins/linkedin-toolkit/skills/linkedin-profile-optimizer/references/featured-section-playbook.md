@@ -1,76 +1,83 @@
-# Featured Section Playbook (Job Seekers)
+# Featured Section Playbook (Software-Engineer Job Seekers)
 
-The Featured section is the only place on a LinkedIn profile where you control what shows first. For a job seeker, it's a small, recruiter-facing portfolio.
+The Featured section is the only place on a LinkedIn profile where you control what shows first. For an engineer job seeker, it's a small, recruiter-facing portfolio of **engineering artifacts** — not a LinkedIn content highlight reel.
 
 ## Quality over quantity
 
-**3 strong items > 10 weak ones.** Rotate quarterly. If you can't think of three items that genuinely showcase your work for the target role, ship fewer rather than filler.
+**3 strong items is a heuristic, not a hard rule.** Two strong items beats three with filler. If you only have one item worth featuring, ship one — empty slots beat weak slots.
+
+Rotate quarterly (or before a focused application push).
 
 ## Content types allowed
 
-- Posts (your own, especially top performers)
-- Articles (LinkedIn native or external)
-- External links (portfolio site, personal blog, project landing pages)
-- PDFs (case studies, design portfolios, published reports)
-- Presentations (decks you've given at conferences or internally)
-- Videos (demos, talks, walkthroughs)
+- External links (GitHub profile, personal site, project landing pages, portfolio pages)
+- PDFs (architecture writeups, technical case studies, sanitized design docs)
+- Posts (your own LinkedIn posts — optional, see below)
+- Articles (LinkedIn native or external technical writing)
+- Presentations (talk decks)
+- Videos (talk recordings, demos, walkthroughs)
 
 ## Custom thumbnails
 
 - **Dimensions:** 1200 x 627 px
-- Use **benefit-driven titles**, not generic descriptions
-- ❌ "My blog post about engineering" → ✅ "How we cut p95 latency 68% on a 3M-doc retrieval pipeline"
-- ❌ "Case study PDF" → ✅ "Rebuilding a checkout flow: 23% conversion lift in 6 weeks"
+- Use **outcome-driven titles**, not generic labels
+- ❌ "My blog post about engineering" → ✅ "Cutting p95 latency 68% on a 3M-doc retrieval pipeline"
+- ❌ "Case study PDF" → ✅ "Rebuilding our checkout: architecture writeup + 23% conversion lift"
+- ❌ "My GitHub" → ✅ "Selected OSS work · LLM evals, distributed tracing, Go libraries"
 - High-contrast background, bold sans-serif text, minimal decoration
 
-## Featured triplet for job seekers
+## Featured triplet for engineers
 
-Three items, in this order:
+The default order — engineer artifacts first, content marketing last.
 
-### 1. Portfolio or personal site
+### Slot 1 (always): GitHub / portfolio / personal site
 
-Your best work samples in one place. For:
+Your code or shipped work, one click from your profile.
 
-- **Engineers:** GitHub overview page, personal site with selected projects, or a curated "things I've shipped" page
-- **Designers:** Personal site or Behance/Dribbble link with 5–8 strongest case studies
-- **PMs/Marketers:** Personal site with case studies covering scope, decisions, and outcomes
-- **Researchers/Writers:** Published work index or substack/portfolio of selected pieces
+Strongest options:
 
-Tip: name the Featured item the *outcome*, not the *artifact*. "Selected work · last 12 months" beats "My portfolio".
+- A curated GitHub profile or pinned repos page that reflects the role family you're targeting
+- A personal site indexing selected projects with brief context (problem → approach → outcome → tech)
+- For frontend / design-adjacent engineers: a portfolio with live demos and case studies
 
-### 2. Top-performing LinkedIn post or article
+Tip: name the Featured slot the **outcome you produced**, not the artifact's name. "Selected backend work · last 12 months" beats "My GitHub".
 
-The piece of content that demonstrates how you think — not necessarily the most viral one, but the one that best represents your judgment, taste, or technical depth.
+### Slot 2 (recommended): Technical writeup or signature project
 
-This shows recruiters two things:
+The single piece of work you most want a recruiter to deep-read. Pick one:
 
-- You can communicate publicly (a baseline expectation for senior roles)
-- You have opinions and the ability to defend them
+- A public technical writeup (architecture case study, postmortem, RFC, design doc)
+- A signature OSS contribution (your project, or a meaningful upstream PR to a major repo)
+- A published talk recording or conference slide deck
+- A sanitized shipped-work artifact (e.g., a public API or developer-facing product you owned)
 
-If you don't have any LinkedIn posts: write one specifically for this slot. A 300-word breakdown of a recent project decision or technical tradeoff is enough.
+This is where you prove **depth** — pick something that shows how you think, not just what you've shipped.
 
-### 3. Signature project
+### Slot 3 (optional): Top LinkedIn post, talk, or secondary project
 
-The one thing you most want a recruiter to look at. Examples:
+Use this slot only if it adds real signal. Options ranked by typical SWE value:
 
-- **Engineers:** A public GitHub repo, an open-source contribution, a technical writeup of a system you designed
-- **Designers:** A single deep case study (Notion, Figma file, or PDF) showing process + outcome
-- **PMs:** A teardown of a product decision (yours or a public one) showing how you reason
-- **Researchers:** A published paper, talk recording, or notable internal report (sanitized)
+1. A conference talk recording (highest signal)
+2. A second signature project or OSS contribution
+3. A technical blog post (your own publication)
+4. A top-performing LinkedIn post **only if** it demonstrates engineering judgment and isn't generic career advice
 
-Pick one. Resist the urge to feature "a few" of these — three items max is the rule, and the portfolio + top post slots already cover breadth.
+**LinkedIn posts are explicitly de-prioritized.** Engineers often don't post on LinkedIn, and that's fine — recruiters care more about a strong second technical writeup than a viral post. Don't manufacture LinkedIn content just to fill this slot.
+
+If you have nothing strong for Slot 3, leave it empty.
 
 ## Rotation schedule
 
-- **Quarterly audit:** replace any item older than 12 weeks OR that got less engagement than its successor
-- **After a viral post:** pin the viral post within 48 hours while the momentum is live
-- **Before applying broadly:** rotate Featured to match the specific role family you're targeting (a senior IC pitch is different from a manager pitch)
+- **Quarterly audit:** replace any item older than 12 weeks OR that no longer matches the role you're targeting
+- **Before a focused application push:** rotate Featured to match the specific role family and seniority (a staff IC pitch is different from an EM pitch)
+- **After publishing something new:** if the new artifact is stronger than what's in Featured, swap immediately
 
 ## Anti-patterns
 
-- Featuring your current company's corporate blog post (better to feature your own writing about it)
+- Featuring your current employer's corporate blog post (better to feature your own writeup about the work)
 - Generic "About me" PDFs — recruiters skip these
-- A 2019 webinar recording (feels dated)
+- A 2019 webinar recording (feels dated, signals inactive)
 - Random "selected writing" with no through-line — be deliberate about what each slot proves
 - Leaving the default LinkedIn-suggested content from a connection's post
 - "Book a call" landing pages or service pitches — these signal consultant, not candidate
+- LinkedIn posts about job-seeking ("excited to announce I'm open to work!") — they don't help recruiters and they crowd out engineering signal

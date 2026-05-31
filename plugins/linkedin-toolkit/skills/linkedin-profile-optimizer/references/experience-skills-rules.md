@@ -1,30 +1,36 @@
-# Experience, Skills, Trust Signals, Custom URL, Recommendations
+# Experience, Skills, Verification, Custom URL, Recommendations
 
 ## Experience bullets
 
-### Formula
+### What a strong bullet shows
 
-`[Action verb] + [specific metric]`
+A strong Experience bullet conveys, in this rough order:
 
-Not: `"Responsible for X"` or `"Managed X"` — these are resume fossils that LinkedIn's NLP ignores and that recruiters skim past.
+1. **Impact** — what changed because of the work (user, business, system, team)
+2. **Scope** — surface area: team size, user count, service count, data scale
+3. **Technical context** — the technology, methodology, or system involved
+4. **Evidence** — a metric, dataset size, or named artifact when it exists
+
+Metrics are **strong evidence when they exist** — but engineering work often delivers value that doesn't translate into a clean number (a system you designed, an incident you led, a library other teams adopted). Force a fake metric and the bullet reads worse than the honest version.
+
+### Strong vs weak openings
+
+Lead with concrete verbs:
+
+- **Strong:** Led, Built, Designed, Shipped, Cut, Drove, Launched, Grew, Scaled, Migrated, Rebuilt, Hardened, Owned, Authored
+- **Weak (avoid):** Worked on, Handled, Assisted with, Responsible for, Participated in, Helped with, Was part of
 
 ### Before → After
 
 | ❌ Before | ✅ After |
 | --- | --- |
-| Managed social media accounts | Grew social following by 340% and generated $50K in attributed revenue |
-| Responsible for sales team | Built and led 8-person sales team that exceeded quota by 25% for 6 consecutive quarters |
-| Led product development | Shipped 12 features in 18 months; user retention +47% |
-| Handled client accounts | Retained 23 enterprise accounts worth $2.4M ARR; 94% renewal rate |
-| Worked on marketing | Wrote and shipped the "Pipeline Teardown" series; 18M impressions, 340 qualified leads |
+| Worked on the search service | Redesigned the multi-tenant search service (3.2M docs across 400 tenants); cut p95 latency from 820 ms → 260 ms |
+| Responsible for CI/CD pipeline | Owned the CI/CD platform used by 60+ engineers; cut average deploy time 4h → 12 min via parallelized test sharding |
+| Led product development | Shipped the agent orchestration layer (Python + Ray); now drives 40% of platform revenue |
+| Handled on-call rotation | Led incident response for the payments service; authored the postmortem template now used by 4 backend teams |
+| Worked on internal tooling | Designed and shipped the internal RAG search system used by 200+ engineers; no quantitative impact metric, but adopted as the default by 3 internal teams within 4 months |
 
-### Action verbs (strong)
-
-Led, Built, Increased, Delivered, Shipped, Cut, Drove, Launched, Grew, Closed, Retained, Rebuilt, Scaled
-
-### Action verbs (weak — avoid)
-
-Worked on, Handled, Assisted with, Responsible for, Participated in, Helped with, Was part of
+The last row is the key example: a real, valuable engineering bullet **without** a clean metric. Don't fake a number — the scope (200+ engineers, 3 teams, 4 months) carries the evidence.
 
 ### Media attachments
 
@@ -32,8 +38,9 @@ Every role should have at least one attached media item:
 
 - Screenshots of metrics dashboards (anonymized)
 - Links to live projects, articles, demos
-- Case study PDFs
-- Video walkthroughs
+- Architecture diagrams (sanitized)
+- Talk recordings
+- Public PRs / RFCs
 
 Media gives recruiters something tangible to click — text-only roles read as unverified.
 
@@ -45,7 +52,7 @@ Media gives recruiters something tangible to click — text-only roles read as u
 
 - **Up to 50 skills** listed (LinkedIn cap)
 - **Pin top 3** at the top of the section (see Pinning mechanics below)
-- **Mirror skills** from 3–5 target job descriptions — same exact phrasing
+- **Mirror skills** from 3–5 target job descriptions — use the workflow in `jd-keyword-workflow.md`
 - Endorsements significantly improve a skill's ranking in recruiter searches; aim for ≥1 endorsement per claimed skill
 
 ### Pinning top 3 (mechanics)
@@ -57,73 +64,54 @@ LinkedIn doesn't make pinning obvious. The flow:
 3. Select **"Add as top skill"** (LinkedIn allows up to three top skills)
 4. The pinned skills appear above all others on your public profile and in recruiter search previews
 
-Choose the three skills that **most directly match your target role** — not your strongest skills, your most *role-relevant* ones.
+Choose the three skills that **most directly match your target role** — not your strongest skills, your most *role-relevant* ones. A staff backend engineer pinning "Excel" because they're great at it loses the search match for backend roles.
 
-### Skill assessment badges
-
-LinkedIn offers timed multiple-choice assessments for common skills (Python, JavaScript, Excel, SQL, AWS, Tableau, etc.). Pass one and a badge appears on the skill in your profile.
-
-Why job-seekers should care:
-
-- Badges are visible to recruiters as a verified signal — they outrank self-listed skills in search
-- **Only passed assessments display** — if you fail, nothing shows on your profile, so there's no downside to trying
-- Recruiters often filter for badged skills when sourcing for technical roles
-
-How to claim:
-
-1. Go to your profile → **Skills** section → click the pencil icon
-2. Click **"Take skill quiz"** next to any skill that offers an assessment
-3. Pass the timed quiz (typically 15 multiple-choice questions, 1.5 min each)
-4. The badge auto-attaches to the skill
-
-Aim for **≥1 badge on a skill that's central to your target role**. For technical roles where badges exist (Python, SQL, Excel, AWS, etc.) this is one of the highest-leverage profile signals available.
-
-### 2026 high-value skills
+### 2026 high-value skills (SWE)
 
 Include if genuinely applicable:
 
-- AI Literacy
-- Data Analysis
-- Project Management
-- Strategic Thinking
-- Communication
-- Cross-functional Collaboration
-- Prompt Engineering
-- Retrieval-Augmented Generation (RAG)
-- Systems Thinking
+- The languages you actually ship in (Python, Go, TypeScript, Rust, Java)
+- Datastores you operate (PostgreSQL, Redis, Kafka, ClickHouse)
+- Infra you've built on (Kubernetes, Terraform, AWS, GCP)
+- AI/ML stack if relevant (PyTorch, RAG, LangGraph, embeddings)
+- System-level competencies (Distributed Systems, Observability, Reliability Engineering, API Design)
+- Leadership signals where truthful (Technical Leadership, Mentorship, Engineering Management)
 
 ### Skills hygiene
 
 - Remove skills you haven't used in 3+ years (stale signal)
 - Don't list generic soft skills without evidence ("Leadership", "Teamwork") — back them with roles that prove it
-- If you have conflicting skills across roles (e.g., front-end dev + sales), keep them — LinkedIn tolerates breadth and recruiters filter by intersection
+- If you have conflicting skills across roles (e.g., backend + design), keep them — LinkedIn tolerates breadth and recruiters filter by intersection
 
 ---
 
-## Trust signals
+## Verification (optional)
 
-### Verification badge
+LinkedIn rolled out profile verification in 2023; it's a soft trust signal that helps but isn't required. A verified profile shows a checkmark next to the name in search results and on the profile page.
 
-LinkedIn rolled out profile verification in 2023; by 2026 it's a baseline trust signal recruiters look for. A verified profile shows a checkmark next to the name on search results and the profile page.
+When it's worth the 5 minutes:
 
-Available verification methods:
+- You're searching openly and want every edge against fake-profile suspicion
+- Your name is common or your profile is sparse on past-employer affiliations
+- You're a remote candidate where fake-profile rates are higher
 
-- **Work email** — verifies you have an active email at the company you list as your current employer
-- **Government ID** — verifies your legal identity via LinkedIn's CLEAR partnership (free, US/UK/Canada/etc.)
-- **Workplace** — verified via your employer's HR system (only available at some companies)
+When it's fine to skip:
 
-Why job-seekers should care: a verified profile passes the "is this person real?" filter recruiters apply when triaging hundreds of candidates. Unverified profiles get triaged lower in skeptical-recruiter pipelines, especially in remote-hiring contexts where fake profiles are common.
+- You already have strong company affiliations and recommendations
+- The verification methods available to you don't apply (no current employer for work email, country not supported for Government ID)
+
+Verification methods (use the strongest available):
+
+- **Government ID** via LinkedIn's CLEAR partnership (free, available in US / UK / Canada / India / Mexico and growing)
+- **Workplace** — verified via employer HR system (only at some companies)
+- **Work email** — verifies you have an active email at your current employer
 
 How to claim:
 
 1. LinkedIn → **Settings** → **Account preferences** → **Verifications**
-2. Choose the strongest method available (Government ID > Workplace > Work email)
-3. Complete the verification flow (Government ID takes ~5 minutes via CLEAR)
+2. Choose the strongest method available
+3. Complete the flow (Government ID via CLEAR takes ~5 minutes)
 4. The checkmark appears within 24 hours
-
-### Skill-assessment badges
-
-See **Skills → Skill assessment badges** above. Earning ≥1 badge on a target-role-relevant skill is the other half of the trust-signal pair.
 
 ---
 
@@ -145,7 +133,7 @@ Never: `linkedin.com/in/firstname-lastname-123abc456`
 
 - **Memorable** — you can say "linkedin.com/in/sergebulaev" in conversation
 - **SEO** — Google ranks canonical URLs higher than hash-tail URLs
-- **Signal of intent** — the short URL reads as someone who set up their profile deliberately, not someone who just signed up
+- **Signal of intent** — the short URL reads as someone who set up their profile deliberately
 
 ---
 

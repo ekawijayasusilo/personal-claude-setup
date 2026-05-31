@@ -8,6 +8,10 @@
 
 The hook is everything — most readers never click "see more", so the first ~265 chars have to carry the whole pitch. For a job-seeker, that pitch is: **target role + signal of depth + what's next**.
 
+## Keyword sourcing
+
+Before drafting, run the JD-keyword workflow (`jd-keyword-workflow.md`) to collect the must-include and strong-to-include terms from 3–5 target job descriptions. The About section should weave 5–7 must-include terms across its 7 steps, with 3–5 strong-to-include terms landing in the Specialties line.
+
 ## 7-Step Structure
 
 | Step | Purpose | Budget |
