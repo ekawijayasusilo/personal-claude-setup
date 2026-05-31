@@ -1,2 +1,3 @@
-# pluginize
-Creating a plugin marketplace for AI agent add-ons that's not available via plugin
+# Personal Claude Setup
+
+Repo to hold personal Claude setup like CLAUDE.md and Claude settings stored in dotenv files, alongside hosting custom plugin marketplace for personal purposes.
