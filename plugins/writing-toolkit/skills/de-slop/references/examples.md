@@ -1,10 +1,8 @@
 # De-Slop Worked Examples
 
-Concrete before/after rewrites for the patterns catalogued in `SKILL.md`. Load this file when you want a worked rewrite for a specific pattern, or to see how several patterns stack in one passage (the two longer examples at the end).
+Before/after rewrites keyed to `SKILL.md` pattern numbers. Load for a specific pattern or stacked examples at end.
 
-Each entry maps by number and name to a pattern in the SKILL.md catalogue. The rule and "words to watch" live in SKILL.md; this file is examples only. Patterns whose SKILL.md entry is fully self-contained (e.g. generic positive conclusions, curly vs straight quotes) have no entry here.
-
-Rewrites assume the writer has the relevant facts. Where an "After" depends on source material, that source is noted in parentheses — do not invent such details. See the Factual safety rule in SKILL.md.
+Rewrites assume writer has facts. If an "After" depends on source material, note says so. Do not invent details; follow Factual safety rule in SKILL.md.
 
 ## Content patterns
 
@@ -40,7 +38,7 @@ After (no additional source material): *Traffic congestion and water scarcity ar
 
 After (with source material giving dates and projects): *Traffic congestion increased after 2015 when three new IT parks opened. The municipal corporation began a stormwater drainage project in 2022 to address recurring floods.*
 
-The "challenges" formula needs to be cut either way — but the dates and named projects must come from the source, not from the rewrite.
+Cut the "challenges" formula either way. Dates/projects must come from source.
 
 ### 7. Persuasive authority tropes
 
@@ -203,7 +201,7 @@ After: *The economic factors you mentioned are relevant here.*
 
 ## Longer passages — several patterns at once
 
-Single-rule examples show patterns in isolation. Real prose carries several at once. These two show how to untangle a paragraph carrying multiple tells.
+Real prose stacks patterns. These show multi-pattern cleanup.
 
 ### Example A — significance puffery, copula avoidance, -ing dangling, rule of three, em dash
 

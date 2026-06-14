@@ -5,14 +5,14 @@ description: Organize whole documents using established structural patterns — 
 
 # Document Structure
 
-Sentence-level polish can't fix a poorly organized document. This skill provides structural patterns for organizing prose at the document level: which information goes first, what shape the argument takes, how the reader moves through the piece.
+Sentence polish cannot fix bad organization. Use this skill for document-level order: what comes first, argument shape, reader path.
 
 ## When to use this skill
 
-- Starting a new document and unsure how to organize it.
-- A document is technically clean but feels unfocused — likely a structure problem.
-- The reader needs to be able to stop partway through and still get the key information.
-- A draft has the right material but in the wrong order.
+- Starting a document and unsure how to organize it.
+- Draft is clean but unfocused: likely structure, not wording.
+- Reader may stop midway but still needs key info.
+- Material is right but order is wrong.
 
 For sentence-level rules, use `writing-clearly-and-concisely`. For matching structure to audience, use `audience-awareness`.
 
@@ -20,11 +20,11 @@ For sentence-level rules, use `writing-clearly-and-concisely`. For matching stru
 
 ### BLUF — Bottom Line Up Front
 
-State the conclusion, recommendation, or key takeaway in the first one or two sentences. Then support it.
+Put conclusion, recommendation, or key takeaway in first 1-2 sentences. Then support it.
 
-When to use: memos, decision documents, status updates, executive-facing writing, any context where the reader is busy and may stop reading at any point.
+Use for: memos, decision docs, status updates, executive-facing writing, busy readers.
 
-Why it works: most readers do not finish documents. BLUF guarantees the most important information reaches even the readers who only read the first paragraph.
+Why: many readers stop early; BLUF gets most important info through.
 
 Example structure:
 
@@ -39,53 +39,51 @@ platform team is already running.
 [supporting detail follows]
 ```
 
-Common mistake: hiding the recommendation in a "Conclusion" section at the end. By the time the reader reaches it, they have either skipped or formed their own conclusion.
+Common mistake: burying recommendation in final "Conclusion."
 
 ### Inverted pyramid
 
-Order facts from most important to least important. The reader can stop at any point and still have the key information.
+Order facts most important -> least important. Reader can stop anywhere and keep key info.
 
-When to use: news, announcements, incident reports, change announcements, release notes.
+Use for: news, announcements, incident reports, change announcements, release notes.
 
-Why it works: news writers developed this pattern because typesetters cut articles from the bottom to fit space. Readers behave the same way — they cut from the bottom by stopping reading. Put the most important facts where the reader will definitely see them.
+Shape:
 
-Example shape:
-
-1. Lead paragraph: what happened, when, who is affected.
+1. Lead: what happened, when, who affected.
 2. Key details: numbers, scope, impact.
 3. Background: how this came about.
-4. Context: related events, history.
+4. Context: related events/history.
 5. Future: what happens next.
 
-Common mistake: chronological order ("first we did X, then we did Y, then we discovered the issue…"). Save chronology for the postmortem section. Lead with the outcome.
+Common mistake: chronology first. Save chronology for postmortem body; lead with outcome.
 
 ### PREP — Point, Reason, Example, Point
 
-A paragraph-level pattern for persuasive writing.
+Paragraph-level persuasive pattern.
 
-1. **Point**: state the claim.
-2. **Reason**: why the claim is true.
-3. **Example**: concrete evidence supporting the reason.
-4. **Point**: restate the claim, now grounded.
+1. **Point**: claim.
+2. **Reason**: why true.
+3. **Example**: concrete evidence.
+4. **Point**: restated, now grounded.
 
-When to use: persuasive paragraphs, sections of a proposal arguing for a particular decision, blog posts making an argument.
+Use for: persuasive paragraphs, proposal sections, argumentative blog posts.
 
 Example:
 
 > Code review is more valuable as a teaching moment than as a defect filter. Most defects that matter slip past reviewers anyway — the ones that get caught are usually style or naming nits a linter would also catch. Where review pays off is when a senior engineer explains *why* a pattern is preferred, and that knowledge propagates to the rest of the team. Treat code review as a teaching channel, and the catch-defects function becomes a side benefit rather than the goal.
 
-Common mistake: stopping after Point + Reason. Without the Example, the argument is just an opinion. Without the closing Point, the reader is left to draw their own conclusion (and may not draw the right one).
+Common mistake: Point + Reason only. Without Example, argument is opinion; without closing Point, reader must infer.
 
 ### SCQA — Situation, Complication, Question, Answer
 
-McKinsey-style framing for analytical documents. Sets up the problem so the reader understands why the answer matters.
+Analytical framing. Establish why answer matters.
 
-1. **Situation**: the relevant context the reader already knows or accepts.
-2. **Complication**: what changed or what is now wrong.
-3. **Question**: the question the document answers.
-4. **Answer**: the answer.
+1. **Situation**: accepted context.
+2. **Complication**: what changed/went wrong.
+3. **Question**: what doc answers.
+4. **Answer**: answer.
 
-When to use: analysis documents, consulting-style writeups, strategy memos, anything where the answer only makes sense once the question is clear.
+Use for: analysis docs, strategy memos, consulting-style writeups.
 
 Example shape:
 
@@ -97,34 +95,32 @@ Example shape:
 >
 > **Answer**: federate via OIDC. Consolidation is too disruptive given the current cycle; the operational cost will grow as we acquire more products; federation has a clear migration path and matches industry norms.
 
-Common mistake: skipping the Complication. Without it, the Answer reads as an opinion floating in space. The Complication is what makes the Question matter.
+Common mistake: skipping Complication. Then Answer floats as opinion.
 
 ### Lead, body, close
 
-The classical essay or article structure.
+Classical essay/article shape.
 
-- **Lead**: sets up the topic and gives the reader a reason to keep reading. Can be an anecdote, a striking fact, a question, a vivid scene. Not BLUF — the lead invites, it does not conclude.
-- **Body**: develops the topic. Multiple paragraphs, each making a distinct point that supports the whole.
-- **Close**: lands the piece. Returns to something from the lead, draws a conclusion, or leaves the reader with a thought.
+- **Lead**: invites reader: anecdote, striking fact, question, scene. Not BLUF.
+- **Body**: develops topic; each paragraph makes a distinct point.
+- **Close**: lands piece by returning to lead, drawing conclusion, or leaving a thought.
 
-When to use: essays, blog posts, opinion pieces, narrative non-fiction. Generally not for technical or business writing — those have better-fitting patterns above.
+Use for: essays, blog posts, opinion pieces, narrative non-fiction. Usually wrong for technical/business writing.
 
-Common mistake: writing a lead that is really an abstract or BLUF. An essay lead invites the reader in; a memo BLUF tells them the answer immediately. Different goals, different forms.
+Common mistake: making lead an abstract or BLUF.
 
 ## Technical documentation modes (Diataxis)
 
-The patterns above are for prose. Technical documentation has its own information architecture, and the most useful framework is [Diataxis](https://diataxis.fr/) — four distinct modes, each serving a different reader need.
-
-The framework matters because most bad technical documentation mixes modes. An API reference turns into a tutorial. A tutorial behaves like a reference manual. Pick the mode first; structure follows.
+Technical docs need information architecture. [Diataxis](https://diataxis.fr/) separates four reader needs. Bad docs mix modes: API reference becomes tutorial; tutorial acts like reference. Pick mode first.
 
 ### The four modes
 
-- **Tutorial** — teaches a beginner by walking through a complete learning path. Optimised for *progress and confidence*. Prerequisites, a realistic path, a finished outcome, "what to do next."
-- **How-to guide** — helps a reader complete a specific task they already understand the need for. Optimised for *direct steps*. Task in the title, prerequisites, numbered steps, verification.
-- **Reference** — lets the reader look up exact facts. Optimised for *completeness, consistency, and scanning*. Same shape per entry. Required vs optional parameters. Defaults, return values, error cases. No long conceptual explanations — link out instead.
-- **Explanation** — helps the reader understand a concept, tradeoff, or system. Optimised for *mental models*. Start with the question the explanation answers. Define concepts before using them. Use examples and comparisons. Explain tradeoffs and reasons.
+- **Tutorial** — teaches beginner through a complete path. Optimize for progress/confidence: prerequisites, realistic path, finished outcome, next step.
+- **How-to guide** — helps reader complete a specific task. Optimize for direct steps: task title, prerequisites, numbered steps, verification.
+- **Reference** — lookup exact facts. Optimize for completeness/scanning: consistent entries, required/optional params, defaults, returns, errors. Link conceptual material.
+- **Explanation** — build mental model. Start with question, define terms, use examples/comparisons, explain tradeoffs/reasons.
 
-A README usually combines modes — that is fine — but each section inside it should still know which job it is doing.
+README can mix modes; each section should know its job.
 
 ### Picking the mode by reader question
 
@@ -135,68 +131,62 @@ A README usually combines modes — that is fine — but each section inside it 
 | "What are the exact details / parameters / fields?" | Reference |
 | "Why does it work this way?" | Explanation |
 
-When in doubt: ask what the reader will do with the page. Read it once and never return → tutorial or explanation. Return to look something up → reference. Follow it step-by-step now → how-to.
+When unsure, ask what reader will do: read once -> tutorial/explanation; return to look up -> reference; follow steps now -> how-to.
 
 ### README shape
 
-A README is usually a compact mix. A flexible default order:
+Flexible default:
 
-1. What this is (one or two sentences).
-2. Who it is for (when not obvious).
-3. Quick start (install, minimal usage).
-4. Common usage (the 80% case).
+1. What this is.
+2. Who it is for, if not obvious.
+3. Quick start.
+4. Common usage.
 5. Configuration / integration notes.
 6. Troubleshooting.
-7. Links to deeper docs (tutorial, how-to, reference, explanation).
+7. Links to deeper docs.
 
-A tiny library does not need every section. A large platform may need each of these to link out to a full page.
+Tiny libraries can omit sections; large platforms can link each section out.
 
 ## Cross-cutting structural choices
 
-A few decisions that apply to any pattern above.
-
 ### When to use headings vs paragraphs
 
-Headings break a document into navigable sections. Use them when:
+Use headings when:
 
-- The document is long enough that readers need to find specific parts.
-- Sections cover distinct topics, not just successive paragraphs on the same topic.
-- The reader will return to the document and need to re-locate something.
+- Document is long enough to navigate.
+- Sections cover distinct topics.
+- Reader will return and re-locate info.
 
-Do not use headings to break up a short flowing argument. Two-paragraph sections with their own H3 headings make the document feel choppy and bureaucratic.
+Avoid headings that chop a short flowing argument into bureaucratic two-paragraph chunks.
 
 ### When a list beats prose
 
 Use a list when:
 
-- The items are genuinely parallel (same kind of thing).
-- The order does not carry meaning (or the list is numbered specifically because order matters).
-- The reader will scan rather than read straight through.
+- Items are parallel.
+- Order is irrelevant, or numbering means order matters.
+- Reader will scan.
 
-Do not list things that have natural prose connectives between them ("first… then… because… therefore…"). Prose carries the relationship; a list flattens it.
+Use prose when ideas have natural connectives: first, then, because, therefore. Lists flatten relationships.
 
 ### Section breaks within a section
 
-A section break (extra blank line, horizontal rule, or `***`) signals "we are shifting topic or perspective without starting a new section." Useful in long-form writing to mark a beat change without the heavy formatting of a heading.
-
-Most technical and business writing does not need these. Use them in essays, long-form articles, and reports.
+Section break (blank line, horizontal rule, `***`) means topic/perspective shift without new heading. Useful in essays, long-form articles, reports. Usually unnecessary in technical/business docs.
 
 ## Picking the right pattern
 
-Quick guide:
+- Memo, status update, decision doc -> **BLUF**
+- Announcement, news, release notes, incident report -> **Inverted pyramid**
+- Persuasive paragraph/argument -> **PREP**
+- Analysis/strategy doc needing setup -> **SCQA**
+- Essay, blog post, narrative non-fiction -> **Lead / body / close**
+- Technical documentation -> choose **Diataxis mode** first; README uses compact mix
 
-- Memo, status update, decision doc → **BLUF**
-- Announcement, news, release notes, incident report → **Inverted pyramid**
-- Persuasive paragraph or argument within a larger doc → **PREP**
-- Analysis or strategy doc that needs to set up *why* the question matters → **SCQA**
-- Essay, blog post, narrative non-fiction → **Lead / body / close**
-- Technical documentation → pick a **Diataxis mode** first (tutorial / how-to / reference / explanation), then structure within that. READMEs use a compact mix; see the README shape section above.
-
-For audience-driven choices between patterns, see `audience-awareness`.
+For audience-driven choices, see `audience-awareness`.
 
 ## Related skills
 
-- `audience-awareness` — which structure fits which reader and document type.
-- `writing-clearly-and-concisely` — sentence-level polish within each section.
-- `de-slop` — remove AI patterns from prose once the structure is right.
-- `tech-doc-templates` — RFC and ADR templates that bake structure into the document type.
+- `audience-awareness` - which structure fits which reader/document type.
+- `writing-clearly-and-concisely` - sentence polish within sections.
+- `de-slop` - remove AI patterns after structure is right.
+- `tech-doc-templates` - RFC/ADR templates with structure built in.

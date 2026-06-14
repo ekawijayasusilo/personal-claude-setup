@@ -7,34 +7,34 @@ description: Apply Strunk's Elements of Style for sentence-level clarity, concis
 
 ## Overview
 
-William Strunk Jr.'s *The Elements of Style* (1918) is a compact guide to sentence-level writing: grammar, punctuation, conciseness, parallelism, and word choice. This skill applies its rules when editing prose for clarity at the sentence and paragraph level.
+William Strunk Jr.'s *The Elements of Style* (1918) covers sentence-level grammar, punctuation, concision, parallelism, and word choice. Apply it when editing prose at sentence/paragraph level.
 
-The full reference is in `elements-of-style.md` (~12k tokens). Load it only when actively editing prose; the rule list below is usually enough to guide an edit.
+Compressed reference: `elements-of-style.md`. Load `elements-of-style.md` only when actively copyediting; list below usually suffices. If unsure on a rule, consult `elements-of-style.md`.
 
 ## When to use this skill
 
-Use this skill when the task is sentence-level prose polish:
+Use for sentence-level prose polish:
 
-- Tightening sentences, cutting needless words
-- Fixing grammar, punctuation, or parallelism
-- Improving sentence rhythm and flow within a paragraph
-- Choosing between active and passive voice for a sentence
-- Resolving an ambiguous or awkward construction
+- Tighten sentences; cut needless words
+- Fix grammar, punctuation, or parallelism
+- Improve rhythm and paragraph flow
+- Choose active vs passive voice
+- Resolve ambiguous or awkward constructions
 
-Do not use this skill for:
+Do not use for:
 
-- Removing AI-generated writing patterns → use `de-slop`
-- Choosing how to organize a whole document → use `document-structure`
-- Adapting tone or register to a specific audience → use `audience-awareness`
-- Drafting a structured technical document → use `tech-doc-templates`
+- Removing AI-generated writing patterns -> use `de-slop`
+- Whole-document organization -> use `document-structure`
+- Tone/register by audience -> use `audience-awareness`
+- Structured technical docs -> use `tech-doc-templates`
 
 ## Limited context strategy
 
 When context is tight:
 
-1. Write your draft using judgment and the rule list below.
-2. Dispatch a subagent with your draft and `elements-of-style.md`.
-3. Have the subagent copyedit and return the revision.
+1. Draft using judgment + rule list below.
+2. Dispatch subagent with draft and `elements-of-style.md`.
+3. Ask subagent to copyedit and return revision.
 
 ## The rules
 
@@ -64,47 +64,47 @@ When context is tight:
 
 ### Section V: Words and expressions commonly misused
 
-Alphabetical reference for usage questions. Load from `elements-of-style.md` when needed.
+Alphabetical usage reference. Load from `elements-of-style.md` when needed.
 
 ## Caveats on contested rules
 
-A few of Strunk's rules are defaults rather than absolutes. Apply judgment, not orthodoxy.
+Apply judgment, not orthodoxy. Some Strunk rules are defaults.
 
 ### Rule 1 — Possessive 's after a final s
 
-Strunk says "Charles's friend" even after a final s. This is the Oxford / US Government Printing Office convention. AP style and many modern house styles prefer "Charles' friend." Either is correct. Match the surrounding text's convention; if there is none, pick one and stay consistent within the document.
+Strunk prefers "Charles's friend." AP and many house styles prefer "Charles' friend." Match surrounding convention; if none, pick one and stay consistent.
 
 ### Rule 10 — Use the active voice
 
-Active voice is the right default, but passive voice is correct (not a flaw) when:
+Active is default. Passive is correct when:
 
-- The agent is unknown, irrelevant, or obvious ("The window was broken." "The bill was passed in 1972.")
-- The patient deserves emphasis ("The vaccine was administered to 200 children.")
-- The state matters more than the actor — common in technical writing ("The cache is invalidated after 10 minutes." Rewriting to "The system invalidates the cache after 10 minutes" names a vague actor and adds no information.)
-- Conventional in the genre (scientific writing, formal reports, some legal prose)
+- Agent unknown, irrelevant, or obvious ("The bill was passed in 1972.")
+- Patient deserves emphasis ("The vaccine was administered to 200 children.")
+- State matters more than actor, common in technical writing ("The cache is invalidated after 10 minutes.")
+- Genre expects it: scientific writing, formal reports, legal prose
 
-Strunk himself has been criticised — notably by Geoffrey Pullum — for mislabelling non-passive constructions as passive in his examples. When applying Rule 10, verify the sentence is actually passive before "fixing" it.
+Verify sentence is actually passive before fixing. Strunk has been criticized by Geoffrey Pullum for mislabeling non-passives.
 
 ### Rule 6 — Do not break sentences in two
 
-Avoid *accidental* fragments that confuse grammar or obscure meaning. Deliberate fragments are effective in technical writing ("Returns null if not found." "No configuration required."), UI text and microcopy, dialogue, headings, and personal essays where rhythm matters. Do not "fix" a fragment that is clearly intentional and improves scanability or rhythm.
+Avoid accidental fragments that confuse grammar. Keep deliberate fragments in technical writing ("Returns null if not found."), UI text, dialogue, headings, and essays when they improve scanability/rhythm.
 
 ### Rule 9 — Begin paragraphs with topic sentences
 
-Topic sentences are a useful default in expository, technical, academic, and business writing. They are not mandatory in narrative, essay, dialogue, product copy, or short UI text. In technical documentation, a heading plus a direct first sentence often does the topic-sentence job already — adding a separate topic sentence on top can feel redundant.
+Good default for expository, technical, academic, and business writing. Not mandatory for narrative, essays, dialogue, product copy, or short UI text. In technical docs, heading + direct first sentence may already do the job.
 
 ### Rule 11 — Put statements in positive form
 
-Positive form is usually clearer, but negative form is correct when contrast is the point, when warning about prohibited behaviour, when defining a boundary, or when preventing a likely mistake. Do not rewrite a precise warning into a positive sentence that softens or hides the risk. "Do not commit secrets to the repo" is sharper and clearer than "Keep secrets out of the repo."
+Positive form is usually clearer. Negative form is correct for contrast, warnings, boundaries, and likely mistakes. "Do not commit secrets to the repo" is better than a softened positive rewrite.
 
 ### Rule 18 — Place emphatic words at the end of the sentence
 
-End emphasis is useful for rhetorical force in essay and persuasive writing. Technical writing often prefers the opposite — put the key term first so the reader can scan. "**Postgres** is the primary datastore" lets a reader skim and locate; "The primary datastore is **Postgres**" is more rhetorical but harder to scan in a list of similar sentences. Prefer scanability over rhetorical force in reference docs, procedures, and tables.
+End emphasis helps essays/persuasion. Technical writing often needs key term first for scanning. Prefer scanability in reference docs, procedures, and tables.
 
 ## Related skills
 
-For complementary guidance, also load:
+For complementary guidance:
 
-- `de-slop` — remove AI-writing patterns (use together with this skill when editing AI-generated prose)
-- `audience-awareness` — adapt rules to the reader and document type
-- `document-structure` — organize the document above the paragraph level
+- `de-slop` - remove AI-writing patterns (pair with this for AI drafts)
+- `audience-awareness` - adapt rules to reader/document type
+- `document-structure` - organize above paragraph level

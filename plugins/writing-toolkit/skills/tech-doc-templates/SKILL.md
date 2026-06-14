@@ -5,76 +5,76 @@ description: Scaffold a new technical document from a sensible-default template.
 
 # Tech Doc Templates
 
-This skill provides starter templates for common software-engineering documents. The templates live in the `templates/` subdirectory and are loaded on demand.
+Starter templates for common engineering docs. Files live in `templates/`; load on demand.
 
 ## When to use this skill
 
-- The user asks to "write an RFC" or "draft an ADR" or similar.
-- A new technical document needs structure and you want a sensible starting shape.
-- An existing draft has all the right material but no clear structure — re-cast it onto a template.
+- User asks to write/draft an RFC, ADR, Design Doc, or Postmortem.
+- New technical document needs structure.
+- Existing draft has material but no clear shape.
 
-This skill is for *scaffolding* documents. For polishing the prose inside them, use the sibling skills.
+Scaffolding only. Use sibling skills for prose polish.
 
 ## Available templates
 
 | Template | File | Use when… |
 |---|---|---|
-| RFC | `templates/rfc.md` | Proposing a substantive change that needs team input before commitment. Multiple alternatives are on the table; the decision is not yet made. |
-| ADR | `templates/adr.md` | Recording an architectural decision that has converged. The decision is mostly made; this document captures *what* and *why* for future readers. |
-| Design Doc | `templates/design-doc.md` | Specifying *how* to build a system or feature whose direction is broadly agreed. Implementation-focused: APIs, data model, cross-cutting concerns. |
-| Postmortem | `templates/postmortem.md` | Documenting an incident after the fact — impact, causes, timeline, and follow-up actions. Blameless and retrospective. |
+| RFC | `templates/rfc.md` | Proposing substantive change; team input needed; decision not made. |
+| ADR | `templates/adr.md` | Recording converged architectural decision; captures what/why. |
+| Design Doc | `templates/design-doc.md` | Specifying how to build agreed system/feature: APIs, data, concerns. |
+| Postmortem | `templates/postmortem.md` | Retrospective after incident: impact, causes, timeline, actions. |
 
 ## Picking the right template
 
-Four documents, four jobs. The fastest way to choose is by the question each one answers:
+Fastest choice: question each doc answers.
 
 | Template | Answers | When |
 |---|---|---|
-| **RFC** | "*Should* we do this, and which way?" | Decision not yet made; you want input |
-| **Design Doc** | "*How* will we build it?" | Direction agreed; you're specifying the build |
-| **ADR** | "*What* did we decide, and why?" | A single decision has converged; record it |
-| **Postmortem** | "*What* broke, and how do we prevent it?" | After an incident |
+| **RFC** | "*Should* we do this, and which way?" | Decision open; want input |
+| **Design Doc** | "*How* will we build it?" | Direction agreed; specify build |
+| **ADR** | "*What* did we decide, and why?" | Decision converged; record it |
+| **Postmortem** | "*What* broke, and how do we prevent it?" | After incident |
 
-**Postmortem** is the easy one to place: it is the only *retrospective* document — you write it after something already happened. The other three are about work you are about to do, and they are the ones people confuse.
+Postmortem is retrospective. RFC/Design Doc/ADR are prospective or decision-recording and commonly confused.
 
 ### RFC vs ADR
 
-The two overlap and are often confused. The shortest distinction:
+- **RFC asks a question.** Drives discussion; alternatives are live; decision emerges.
+- **ADR answers a question.** Records converged decision; alternatives are brief rationale, not deep analysis.
 
-- **An RFC asks a question.** It exists to drive discussion. Author writes it, team reads and comments, decision emerges. Multiple alternatives are presented seriously.
-- **An ADR answers a question.** It records a decision that has already converged. Alternatives are mentioned briefly to explain why they were rejected, not weighed at length.
+Common workflow: RFC -> debate -> ADR. ADR lives in repo; RFC may or may not.
 
-A common workflow: write an RFC, debate it, then write an ADR that records the chosen outcome. The ADR lives in the repo; the RFC may or may not.
+Signals:
 
-Other rough signals:
-
-- RFCs include explicit "open questions" and "alternatives considered" sections. ADRs include "alternatives considered" briefly, and avoid open questions (open questions belong in an RFC).
+- RFC: open questions + alternatives considered.
+- ADR: no open questions; alternatives brief.
 
 ### Design Doc vs RFC
 
-The distinguishing axis is **decision-seeking vs. implementation-describing**. An RFC drives a debate to a conclusion: multiple alternatives are genuinely live, the audience is broad (often cross-team or org-wide), and the point is to *decide*. A Design Doc elaborates a direction that is already broadly agreed: it goes deep on one system's internals — APIs, data model, cross-cutting concerns — for the team that will build it. Practical tell: if the document's job is to settle *which direction*, it is an RFC; if its job is to specify *the build so engineers can execute*, it is a Design Doc. Some orgs collapse the two into one artifact — that is fine; pick the template whose sections match what you need.
+Axis: **decision-seeking vs. implementation-describing**.
+
+RFC decides direction: multiple live alternatives, broad audience, goal is decision. Design Doc details agreed direction for builders: internals, APIs, data model, cross-cutting concerns. If settling *which direction*, use RFC. If specifying *the build*, use Design Doc. Some orgs merge them; choose sections that fit.
 
 ### Design Doc vs ADR
 
-A Design Doc describes a whole system's implementation; an ADR records one decision tersely. A single Design Doc may *generate* several ADRs, each capturing a key choice durably — because the Design Doc goes stale after implementation while the ADRs persist.
+Design Doc describes system implementation. ADR records one decision tersely. One Design Doc may create several ADRs because design docs stale after build; ADRs persist.
 
-**Common workflow:** RFC (decide the direction) → Design Doc (detail the build) → ADRs (record the key decisions durably) → Postmortem (if it later breaks). Few projects need all four; pick what the moment calls for.
+**Common workflow:** RFC (decide direction) -> Design Doc (detail build) -> ADRs (record key decisions) -> Postmortem (if it breaks). Few projects need all four.
 
 ## Loading the template
 
-When the user wants to start a document:
+When user wants a document:
 
-1. Confirm which template applies (RFC, ADR, Design Doc, or Postmortem) using the criteria above. If unclear, ask.
-2. Read the corresponding template file from `templates/`.
-3. Use the template as the starting structure. Fill in sections based on what the user provides.
-4. The template files contain `<!-- guidance: ... -->` HTML comments inside each section explaining what goes there. Strip these comments from the final document before delivering it to the user — they are for filling-in guidance, not for the final reader.
+1. Confirm template (RFC, ADR, Design Doc, Postmortem). If unclear, ask.
+2. Read matching file from `templates/`.
+3. Use template as starting structure; fill sections from user context.
+4. Template files contain `<!-- guidance: ... -->` comments. Strip comments before final delivery.
 
 ## Related skills
 
-When working on a document scaffolded by this skill:
+When working on scaffolded docs:
 
-- `document-structure` — for organizing the content *within* each section (BLUF for summary sections, PREP for argumentative sections, etc.).
-- `writing-clearly-and-concisely` — sentence-level polish.
-- `de-slop` — strip AI patterns from any draft prose.
-- `audience-awareness` — each of these documents has specific readers (your team, future maintainers, incident reviewers); apply rules accordingly.
-
+- `document-structure` - organize content inside sections.
+- `writing-clearly-and-concisely` - sentence polish.
+- `de-slop` - strip AI patterns.
+- `audience-awareness` - adapt to readers: team, maintainers, incident reviewers.
