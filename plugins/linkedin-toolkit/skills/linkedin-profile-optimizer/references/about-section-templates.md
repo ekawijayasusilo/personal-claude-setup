@@ -2,29 +2,29 @@
 
 ## Display budget
 
-- **Mobile cutoff:** first ~265 chars show before "see more"
+- **Mobile cutoff:** first ~265 chars before "see more"
 - **Full length:** 200-300 words (1,000-1,500 characters)
-- **Voice:** first person ("I help...") — see SKILL.md §Hard rules for full voice rules
+- **Voice:** first person ("I help...") — see SKILL.md §Hard rules
 
-The hook is everything — most readers never click "see more", so the first ~265 chars have to carry the whole pitch. For a job-seeker, that pitch is: **target role + signal of depth + what's next**.
+Hook must carry whole pitch: **target role + depth signal + what's next**.
 
 ## Keyword sourcing
 
-Before drafting, run the JD-keyword workflow (`jd-keyword-workflow.md`) to collect the must-include and strong-to-include terms from 3–5 target job descriptions. The About section should weave 5–7 must-include terms across its 7 steps, with 3–5 strong-to-include terms landing in the Specialties line.
+Run `jd-keyword-workflow.md` first. About should weave 5–7 must-include terms across 7 steps, with 3–5 strong-to-include terms in Specialties.
 
 ## 7-Step Structure
 
 | Step | Purpose | Budget |
 | --- | --- | --- |
-| 1. Hook | Open with the target role + a specific signal of depth | ~50 chars |
-| 2. Your trajectory | What you've shipped and where you've shipped it | ~100 chars |
-| 3. Achievements | One or two concrete wins with numbers a recruiter can scan | ~150 chars |
-| 4. What you want next | The role, scope, stage of company, and why | ~200 chars |
-| 5. Personality | One line that shows you're a human, not a resume | ~100 chars |
-| 6. Specialties | Keywords for search — mirror target job description language | ~150 chars |
+| 1. Hook | Target role + specific depth signal | ~50 chars |
+| 2. Your trajectory | What shipped and where | ~100 chars |
+| 3. Achievements | One or two scannable wins with numbers | ~150 chars |
+| 4. What you want next | Role, scope, company stage, why | ~200 chars |
+| 5. Personality | One human line, not resume filler | ~100 chars |
+| 6. Specialties | Search keywords from target JDs | ~150 chars |
 | 7. Call-to-action | Portfolio link + email or "open to chat" | ~100 chars |
 
-> Step budgets are illustrative — distribute as needed, but the finished About should land at 200-300 words total regardless of how individual sections shake out.
+> Step budgets are illustrative — distribute as needed, but finished About should land at 200-300 words.
 
 ## Full worked example (Staff engineer applying for deep-IC roles)
 
@@ -48,18 +48,18 @@ Open to chats about staff IC roles: [email]
 
 **Why this works:**
 
-- First ~265 chars ("Staff software engineer shipping AI-native B2B products from zero to scale. Six years: RAG search at a startup, agentic workflows at Series C. Now looking for a deep-IC staff/principal role — engineering depth, not headcount.") positions the candidate for the **target** role — not the current one
-- Concrete numbers (68%, 3.2M, 40%, 6, three, 18) — not "significant lift"
-- "What I'm looking for" paragraph tells recruiters exactly when to reach out and when to skip
-- Specialties line is packed with recruiter-search keywords lifted from real job descriptions
-- CTA is specific and friction-free — portfolio link + role-qualified email
+- First ~265 chars position for **target** role, not current one
+- Concrete numbers (68%, 3.2M, 40%, 6, three, 18), not vague lift
+- "What I'm looking for" tells recruiters when to reach out or skip
+- Specialties line packs recruiter-search keywords from real JDs
+- CTA is specific: portfolio + role-qualified email
 
 ## Section-specific anti-patterns
 
 For general voice / AI-slop anti-patterns, see SKILL.md §Hard rules. About-specific:
 
-- Starting with "Welcome to my LinkedIn!" or "Hello, I'm [name]!" — wastes the hook
-- Ending with "Let's connect!" or "Always learning!" — dead CTAs that say nothing
-- Spending the hook on the current/past role ("I'm currently a Senior Engineer at X...") — recruiters care about the next role, not the current one
-- Closed-door "about me" framing — write "what I want next", not a memoir
-- Wall of text with no line breaks — mobile readability dies instantly
+- "Welcome to my LinkedIn!" / "Hello, I'm [name]!" — wastes hook
+- "Let's connect!" / "Always learning!" — dead CTA
+- Hook spent on current/past role; recruiters care about next role
+- Closed-door memoir framing; write "what I want next"
+- Wall of text with no line breaks

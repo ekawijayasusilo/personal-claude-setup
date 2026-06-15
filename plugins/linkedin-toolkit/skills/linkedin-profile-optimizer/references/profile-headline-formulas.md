@@ -1,6 +1,6 @@
 # Profile Headline Formulas (Software-Engineer Job Seekers)
 
-**Character limit:** 220. **Use the space efficiently — not maximally.** A tight 140-char headline that says exactly what role you want and why a recruiter should care beats 220 chars of padded keywords.
+**Character limit:** 220. **Use the space efficiently — not maximally.** Tight 140 chars beats padded 220 chars.
 
 ## The formula
 
@@ -8,20 +8,20 @@
 [Target Role / Specialty] | [Industry / Domain or Stack] | [Signal Keyword or Concrete Result]
 ```
 
-Three parts separated by `|`. Each part does one job:
+Three parts separated by `|`, one job each:
 
-- **Target Role / Specialty** — the job title you're applying for (not necessarily your current title)
-- **Industry / Domain or Stack** — where you want to work next, or the technical stack that defines your work
-- **Signal Keyword or Concrete Result** — a technology, methodology, or proof point recruiters actually search for
+- **Target Role / Specialty** — job title being targeted, not necessarily current title
+- **Industry / Domain or Stack** — desired domain or defining stack
+- **Signal Keyword or Concrete Result** — searched tech / methodology / proof point
 
 ## Rules
 
-1. **Lead with the target role, not the current title.** If you're a Senior Engineer applying for Staff roles, lead with "Staff Software Engineer". If you're pivoting (e.g., Backend → ML), lead with the destination.
-2. **Be specific.** "B2B SaaS" beats "tech". "Python / Django" beats "web". "FinTech payments" beats "finance".
-3. **Pack keywords recruiters actually search for.** Mirror the language of 3–5 target job descriptions (see `jd-keyword-workflow.md`).
+1. **Lead with the target role, not the current title.** Staff target → "Staff Software Engineer"; pivot → destination first.
+2. **Be specific.** "B2B SaaS" > "tech"; "Python / Django" > "web"; "FinTech payments" > "finance".
+3. **Pack searched keywords.** Mirror 3–5 target JDs (see `jd-keyword-workflow.md`).
 4. **No filler adjectives.** Cut "passionate", "driven", "results-oriented" (see SKILL.md §Hard rules).
 5. **Capitalize technologies and product names** — "Python", "PostgreSQL", "Kubernetes", "Figma", "AWS".
-6. **Front-load the must-include terms.** Mobile preview shows only the first ~100 chars; the top 3 JD-must-include terms should land in that window.
+6. **Front-load must-include terms.** First ~100 chars = mobile preview; top 3 JD-must-include terms land there.
 
 ## Before → After (SWE-focused examples)
 
@@ -57,7 +57,7 @@ Three parts separated by `|`. Each part does one job:
 
 ### Non-SWE example (formula generalizes)
 
-The formula works for adjacent technical roles where the job-seeker context applies:
+Adjacent technical job seekers can use same formula:
 
 - ❌ "Product Manager"
 - ✅ "Senior Technical PM | Developer Tools, API Platforms | Shipped public API used by 3K+ teams"
@@ -66,17 +66,17 @@ The formula works for adjacent technical roles where the job-seeker context appl
 
 For general voice / AI-slop anti-patterns, see SKILL.md §Hard rules. Headline-specific anti-patterns:
 
-- "Open to Work" in the headline text — use the dedicated badge (or recruiters-only mode for discreet searches; see `search-modes.md`)
-- Emoji chains (🚀🔥💡) — read as low-effort
-- All-caps headlines or sections in ALL CAPS
-- "10+ years of experience in..." — nobody searches this; convert to a concrete proof point instead
-- Chaining every past title with pipes — three identities is the cap
-- Padding to 220 chars with weak keywords just to "fill space" — tight beats padded
+- "Open to Work" in headline text — use badge, or recruiters-only for discreet search (`search-modes.md`)
+- Emoji chains (🚀🔥💡)
+- All-caps headlines / sections
+- "10+ years of experience in..." — convert to concrete proof point
+- Chaining every past title with pipes — max 3 identities
+- Padding to 220 chars with weak keywords
 
 ## Search-keyword placement
 
-For the full keyword-extraction workflow, see `jd-keyword-workflow.md`. The minimum:
+For full workflow, see `jd-keyword-workflow.md`. Minimum:
 
-- Include the **target role noun** ("Staff Engineer", "ML Platform Engineer", "Senior Backend Engineer")
-- Include the **target industry or stack** ("B2B SaaS", "FinTech", "Go + Postgres + Kafka")
-- Include 1–2 **specialty keywords** drawn from real JDs ("Distributed Systems", "RAG", "Design Systems", "Observability")
+- Include **target role noun** ("Staff Engineer", "ML Platform Engineer", "Senior Backend Engineer")
+- Include **target industry or stack** ("B2B SaaS", "FinTech", "Go + Postgres + Kafka")
+- Include 1–2 **specialty keywords** from real JDs ("Distributed Systems", "RAG", "Design Systems", "Observability")

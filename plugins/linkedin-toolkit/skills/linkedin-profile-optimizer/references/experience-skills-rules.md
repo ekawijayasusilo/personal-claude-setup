@@ -4,14 +4,14 @@
 
 ### What a strong bullet shows
 
-A strong Experience bullet conveys, in this rough order:
+Strong Experience bullet order:
 
-1. **Impact** — what changed because of the work (user, business, system, team)
-2. **Scope** — surface area: team size, user count, service count, data scale
-3. **Technical context** — the technology, methodology, or system involved
-4. **Evidence** — a metric, dataset size, or named artifact when it exists
+1. **Impact** — user, business, system, or team change
+2. **Scope** — team size, user count, service count, data scale
+3. **Technical context** — technology, methodology, system
+4. **Evidence** — metric, dataset size, named artifact when real
 
-Metrics are **strong evidence when they exist** — but engineering work often delivers value that doesn't translate into a clean number (a system you designed, an incident you led, a library other teams adopted). Force a fake metric and the bullet reads worse than the honest version.
+Metrics are **strong evidence when they exist**. Don't fake metrics for system design, incident leadership, library adoption, or scope-driven value.
 
 ### Strong vs weak openings
 
@@ -30,19 +30,19 @@ Lead with concrete verbs:
 | Handled on-call rotation | Led incident response for the payments service; authored the postmortem template now used by 4 backend teams |
 | Worked on internal tooling | Designed and shipped the internal RAG search system used by 200+ engineers; no quantitative impact metric, but adopted as the default by 3 internal teams within 4 months |
 
-The last row is the key example: a real, valuable engineering bullet **without** a clean metric. Don't fake a number — the scope (200+ engineers, 3 teams, 4 months) carries the evidence.
+Last row: valuable engineering bullet without clean metric. Scope carries evidence.
 
 ### Media attachments
 
-Every role should have at least one attached media item:
+Every role should attach at least one media item:
 
-- Screenshots of metrics dashboards (anonymized)
-- Links to live projects, articles, demos
-- Architecture diagrams (sanitized)
+- Anonymized metrics dashboards
+- Live projects, articles, demos
+- Sanitized architecture diagrams
 - Talk recordings
 - Public PRs / RFCs
 
-Media gives recruiters something tangible to click — text-only roles read as unverified.
+Media gives recruiters proof to click; text-only roles feel unverified.
 
 ---
 
@@ -51,67 +51,67 @@ Media gives recruiters something tangible to click — text-only roles read as u
 ### Volume rules
 
 - **Up to 50 skills** listed (LinkedIn cap)
-- **Pin top 3** at the top of the section (see Pinning mechanics below)
-- **Mirror skills** from 3–5 target job descriptions — use the workflow in `jd-keyword-workflow.md`
-- Endorsements significantly improve a skill's ranking in recruiter searches; aim for ≥1 endorsement per claimed skill
+- **Pin top 3** (see Pinning mechanics)
+- **Mirror skills** from 3–5 target JDs via `jd-keyword-workflow.md`
+- Endorsements improve recruiter-search ranking; aim for ≥1 endorsement per claimed skill
 
 ### Pinning top 3 (mechanics)
 
-LinkedIn doesn't make pinning obvious. The flow:
+LinkedIn flow:
 
-1. Go to your profile → **Skills** section → click the pencil (edit) icon
-2. Find the skill you want to pin → click the three-dot menu on the skill card
-3. Select **"Add as top skill"** (LinkedIn allows up to three top skills)
-4. The pinned skills appear above all others on your public profile and in recruiter search previews
+1. Profile → **Skills** section → pencil icon
+2. Find skill → three-dot menu on skill card
+3. Select **"Add as top skill"** (up to three)
+4. Pinned skills appear above others on public profile + recruiter previews
 
-Choose the three skills that **most directly match your target role** — not your strongest skills, your most *role-relevant* ones. A staff backend engineer pinning "Excel" because they're great at it loses the search match for backend roles.
+Choose skills that **most directly match target role**, not strongest skills. Staff backend engineer pinning "Excel" loses backend search match.
 
 ### 2026 high-value skills (SWE)
 
 Include if genuinely applicable:
 
-- The languages you actually ship in (Python, Go, TypeScript, Rust, Java)
-- Datastores you operate (PostgreSQL, Redis, Kafka, ClickHouse)
-- Infra you've built on (Kubernetes, Terraform, AWS, GCP)
+- Languages shipped in (Python, Go, TypeScript, Rust, Java)
+- Datastores operated (PostgreSQL, Redis, Kafka, ClickHouse)
+- Infra built on (Kubernetes, Terraform, AWS, GCP)
 - AI/ML stack if relevant (PyTorch, RAG, LangGraph, embeddings)
-- System-level competencies (Distributed Systems, Observability, Reliability Engineering, API Design)
-- Leadership signals where truthful (Technical Leadership, Mentorship, Engineering Management)
+- System competencies (Distributed Systems, Observability, Reliability Engineering, API Design)
+- Leadership signals when truthful (Technical Leadership, Mentorship, Engineering Management)
 
 ### Skills hygiene
 
-- Remove skills you haven't used in 3+ years (stale signal)
-- Don't list generic soft skills without evidence ("Leadership", "Teamwork") — back them with roles that prove it
-- If you have conflicting skills across roles (e.g., backend + design), keep them — LinkedIn tolerates breadth and recruiters filter by intersection
+- Remove skills unused for 3+ years
+- Don't list generic soft skills without role evidence ("Leadership", "Teamwork")
+- Keep truthful breadth across roles; LinkedIn tolerates breadth and recruiters filter by intersection
 
 ---
 
 ## Verification (optional)
 
-LinkedIn rolled out profile verification in 2023; it's a soft trust signal that helps but isn't required. A verified profile shows a checkmark next to the name in search results and on the profile page.
+Profile verification (2023+) = soft trust signal, not required. Checkmark appears near name in search/profile.
 
-When it's worth the 5 minutes:
+Worth 5 minutes when:
 
-- You're searching openly and want every edge against fake-profile suspicion
-- Your name is common or your profile is sparse on past-employer affiliations
-- You're a remote candidate where fake-profile rates are higher
+- User searches openly and wants edge against fake-profile suspicion
+- Name is common or profile lacks strong past-employer affiliations
+- Remote candidate where fake-profile rates are higher
 
-When it's fine to skip:
+Skip when:
 
-- You already have strong company affiliations and recommendations
-- The verification methods available to you don't apply (no current employer for work email, country not supported for Government ID)
+- Strong company affiliations + recommendations already exist
+- Available methods don't apply (no current employer email, unsupported country)
 
-Verification methods (use the strongest available):
+Methods, strongest first:
 
-- **Government ID** via LinkedIn's CLEAR partnership (free, available in US / UK / Canada / India / Mexico and growing)
-- **Workplace** — verified via employer HR system (only at some companies)
-- **Work email** — verifies you have an active email at your current employer
+- **Government ID** via LinkedIn's CLEAR partnership (free; US / UK / Canada / India / Mexico and growing)
+- **Workplace** via employer HR system (some companies)
+- **Work email** at current employer
 
 How to claim:
 
 1. LinkedIn → **Settings** → **Account preferences** → **Verifications**
-2. Choose the strongest method available
-3. Complete the flow (Government ID via CLEAR takes ~5 minutes)
-4. The checkmark appears within 24 hours
+2. Choose strongest available method
+3. Complete flow (Government ID via CLEAR ~5 minutes)
+4. Checkmark appears within 24 hours
 
 ---
 
@@ -131,9 +131,9 @@ Never: `linkedin.com/in/firstname-lastname-123abc456`
 
 ### Why it matters
 
-- **Memorable** — you can say "linkedin.com/in/sergebulaev" in conversation
-- **SEO** — Google ranks canonical URLs higher than hash-tail URLs
-- **Signal of intent** — the short URL reads as someone who set up their profile deliberately
+- **Memorable** — easy to say in conversation
+- **SEO** — canonical URLs rank better than hash-tail URLs
+- **Signal of intent** — short URL shows deliberate setup
 
 ---
 
@@ -141,13 +141,13 @@ Never: `linkedin.com/in/firstname-lastname-123abc456`
 
 ### Why they matter
 
-For job seekers, recommendations are the closest thing LinkedIn has to a reference check before the reference check. Recruiters skim them to confirm: did past managers/colleagues actually like working with this person, and what did they say specifically?
+Recommendations are LinkedIn's pre-reference check. Recruiters skim for specific evidence that managers/peers liked working with user.
 
 ### How to request (the right way)
 
-1. **Email or call first** — don't use LinkedIn's generic auto-request
+1. **Email or call first** — skip LinkedIn auto-request
 2. **Ask for specifics** — "about [specific project / skill / outcome]"
-3. **Offer to draft bullets** — make it 2 minutes of their time
+3. **Offer to draft bullets** — 2 minutes of their time
 4. **Reciprocate** — write theirs first, then ask
 
 ### Template for the ask
@@ -170,5 +170,5 @@ Also happy to write yours first if that helps.
 ### Rotation
 
 - Target **3 recommendations per year** from current context
-- After a role change, ask for 1–2 from the old role (not 5 — looks desperate)
-- Diverse contexts matter: managers, peers, direct reports, cross-functional collaborators
+- After role change, ask 1–2 from old role (not 5)
+- Mix managers, peers, direct reports, cross-functional collaborators

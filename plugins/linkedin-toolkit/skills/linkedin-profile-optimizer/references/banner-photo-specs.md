@@ -5,32 +5,32 @@
 ### Dimensions
 
 - **1584 x 396 px** (4:1 ratio)
-- Keep text/CTA in the **right 2/3** of the image — the profile photo covers the left 1/3 on desktop and overlaps even more on mobile
+- Keep text/CTA in **right 2/3**; profile photo covers left 1/3 on desktop, more on mobile
 
 ### Composition checklist (job-seeker)
 
-- High contrast background (pure white, pure black, single solid color — not noisy photos)
+- High-contrast background (pure white, pure black, solid color; no noisy photos)
 - Target-role tagline in bold type — e.g., "Staff Software Engineer · Distributed Systems · Go"
-- One subtle differentiator: a portfolio URL, an "Open to [Role] roles" line, or a single signature visual (a project screenshot, not a stock photo)
-- Optional: small monogram / initial mark — but skip a corporate-style logo unless you have a personal brand
+- One subtle differentiator: portfolio URL, "Open to [Role] roles", or one signature visual (project screenshot, not stock photo)
+- Optional small monogram / initial mark; skip corporate-style logo unless personal brand exists
 
 ### Mobile crop test
 
-LinkedIn crops banners aggressively on mobile. Before finalizing:
+Before finalizing:
 
-1. Upload to a test profile (or use LinkedIn's preview)
-2. Check on three screen sizes (phone portrait, tablet, desktop)
-3. Verify key text is visible on the smallest screen and is not overlapped by the profile photo
+1. Upload to test profile or LinkedIn preview
+2. Check phone portrait, tablet, desktop
+3. Verify key text remains visible on smallest screen and not overlapped by profile photo
 
 ### Anti-patterns
 
-- Stock photo of a handshake
-- Stock photo of a city skyline
+- Stock handshake photo
+- Stock city skyline
 - Tagline only, no visual structure
-- Text that overlaps with where the profile photo sits
-- More than 3 colors (noisy)
-- Tiny logo in the center (gets lost)
-- "Book a call" / "Hire me" / "DM for services" CTAs — these say *consultant*, not *job candidate*
+- Text overlapping profile-photo area
+- More than 3 colors
+- Tiny centered logo
+- "Book a call" / "Hire me" / "DM for services" CTAs — consultant signal, not job-candidate signal
 
 ## Profile Photo
 
@@ -41,21 +41,21 @@ LinkedIn crops banners aggressively on mobile. Before finalizing:
 
 ### Composition checklist
 
-- **Face fills 60% of the frame** (not a full-body shot)
-- Update every **2-3 years** — older photos read as stale / inactive
-- **Natural lighting** near a window beats studio lighting
-- **Neutral background** (solid color, uncluttered wall) — no distracting backgrounds
-- **Work clothes** appropriate to the target industry (not necessarily the current one)
-- **Slight smile** beats "serious professional" — humans respond to warmth
+- **Face fills 60% of the frame**
+- Update every **2-3 years**
+- **Natural lighting** near window beats studio lighting
+- **Neutral background**: solid color or uncluttered wall
+- **Work clothes** appropriate to target industry
+- **Slight smile** beats "serious professional"
 - Eye contact with camera
 
 ### Kills credibility
 
-- Cropped group photo (others' shoulders visible)
-- Vacation shot (beach, mountains, cocktail in hand)
+- Cropped group photo
+- Vacation shot
 - 10-year-old photo
 - Sunglasses or hats
 - Filters / heavy retouching
-- Very low resolution (pixelated)
+- Very low resolution
 - Facing away from camera
-- Stock "professional headshot" (obvious — faceless model)
+- Stock "professional headshot"
