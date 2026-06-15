@@ -1,6 +1,6 @@
 {
   "name": "writing-toolkit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Skills for writing high-quality human-readable documents: sentence-level clarity, anti-AI-slop, audience awareness, document structure, and tech-doc templates (RFC, ADR).",
   "author": {
     "name": "Eka Wijaya Susilo",
