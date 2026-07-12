@@ -1,6 +1,6 @@
 ---
 name: prompt-engineering
-description: Use when refining, polishing, or rewriting prompts to improve LLM output quality, consistency, or structure. Triggers on "improve this prompt", "why isn't this prompt working", "help refine this prompt", "make this prompt better", and vague-to-structured prompt conversion. Covers XML organization, few-shot examples, output formats, instruction clarity, degrees-of-freedom calibration, and prompt-injection-safe delimiting of untrusted input. Do NOT use for general LLM/API questions or runtime configuration such as caching, thinking budgets, or stop sequences.
+description: Use when refining, polishing, or rewriting prompts to improve LLM output quality, consistency, or structure. Triggers on "improve/refine this prompt", "why isn't this prompt working", and vague-to-structured prompt conversion. Covers XML organization, few-shot examples, output formats, instruction clarity, degrees-of-freedom calibration, and prompt-injection-safe delimiting of untrusted input. Do NOT use for general LLM/API questions or runtime configuration such as caching, thinking budgets, or stop sequences.
 ---
 
 # Prompt Engineering
@@ -9,16 +9,17 @@ Refine prompts by diagnosing actual failure, then applying the smallest useful c
 
 ## Workflow
 
-1. Diagnose failure: ambiguous goal, missing context, missing output format, fragile format without examples, or untrusted input mixed with instructions.
+1. Diagnose only failures supported by the prompt, observed output, or stated goal: ambiguous goal, missing context, missing output format, fragile format without examples, specificity mismatched to task fragility (over- or under-constrained), or untrusted input mixed with instructions.
 2. Ask only when missing facts would change the rewrite: target model, current bad output, one-shot vs reusable template.
 3. Fix only weak parts; preserve working constraints, useful wording, and task voice.
-4. Return rewritten prompt first, then short rationale: what changed and why.
+4. Verify before returning: every substantive edit addresses a diagnosed failure or explicit request; working constraints and task voice remain intact; when examples or model execution are available, test a typical input and the most relevant edge input.
+5. Return rewritten prompt first, then short rationale: what changed and why.
 
 ## Core techniques
 
 ### XML structure
 
-Use descriptive tags for separate content types: `<instructions>`, `<context>`, `<examples>`, `<input>`, `<output_format>`. Usually highest leverage. Put long docs/source files above the query.
+Use descriptive XML tags when a prompt needs clear boundaries among distinct content types, examples, long source material, or untrusted input: `<instructions>`, `<context>`, `<examples>`, `<input>`, `<output_format>`. Put long docs/source files above the query.
 
 **Example:**
 
@@ -111,8 +112,6 @@ When prompt asks a model to generate a document, plan, report, or interactive vi
 
 Reference: [The Unreasonable Effectiveness of HTML](https://claude.com/blog/using-claude-code-the-unreasonable-effectiveness-of-html).
 
-Prompt sent to model should still use XML tags for structure.
-
 ## Iterate progressively
 
 Start simple; add complexity only after real failure:
@@ -126,7 +125,6 @@ Start simple; add complexity only after real failure:
 
 - Change one thing at a time so effect is attributable.
 - Stay concise; context tokens compete with the task.
-- Test typical and edge inputs before calling prompt done.
-- Do not use off-target examples.
+- Examples must match the real task's input distribution and output format.
 - Do not ask reasoning models to "think step by step"; request visible artifacts instead: assumptions, decision criteria, verification summary.
 - Do not use runtime knobs (caching, thinking budgets, stop sequences) to fix bad prompt text.

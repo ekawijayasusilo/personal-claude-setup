@@ -1,6 +1,6 @@
 {
   "name": "prompt-engineering",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Refine and polish input prompts — XML structuring, few-shot examples, output formats, instruction strictness, and untrusted-input delimiting — to improve LLM output quality and consistency.",
   "author": {
     "name": "Eka Wijaya Susilo",
