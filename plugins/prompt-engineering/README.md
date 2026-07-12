@@ -4,7 +4,7 @@ A Claude Code plugin that ships a single skill for refining and polishing input 
 
 ## Skill
 
-- **prompt-engineering** — triggers when refining, polishing, or rewriting an input prompt (e.g., "improve this prompt", "why isn't this prompt working", "make this prompt better").
+- **prompt-engineering** — triggers when refining, polishing, or rewriting an input prompt (e.g., "improve this prompt", "why isn't this prompt working", "make this prompt better"). After refining, it also recommends Claude Code `/goal` mode with a copy-ready goal when the refined prompt is long-horizon execution work.
 
 ## Installation
 

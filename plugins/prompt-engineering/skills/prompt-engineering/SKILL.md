@@ -14,6 +14,7 @@ Refine prompts by diagnosing actual failure, then applying the smallest useful c
 3. Fix only weak parts; preserve working constraints, useful wording, and task voice.
 4. Verify before returning: every substantive edit addresses a diagnosed failure or explicit request; working constraints and task voice remain intact; when examples or model execution are available, test a typical input and the most relevant edge input.
 5. Return rewritten prompt first, then short rationale: what changed and why.
+6. Goal-mode gate: when the refined prompt commissions long-horizon execution — multi-turn work with a verifiable stopping condition and a validation loop (tests, build, lint, behavioral checks) the agent can drive on its own — read [goal-mode.md](goal-mode.md) and append a goal-mode recommendation with a copy-ready `/goal` command. One-shot answers, explanations, single-turn fixes, unbounded backlogs, and work needing per-step user decisions fail the gate: return the refined prompt with no goal-related text.
 
 ## Core techniques
 
