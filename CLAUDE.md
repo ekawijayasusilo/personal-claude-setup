@@ -92,4 +92,14 @@ As you execute the plan, maintain a running `implementation-notes.html` file in 
 
 Update the file at each meaningful decision point, not only at the end. For *blocking* ambiguity (can't proceed without an answer), Section #1 still applies — stop and ask.
 
+## 6. Subagent Concurrency Limit
+
+**Never run more than 2 subagents at the same time.**
+
+When spawning subagents (via the Agent tool or any other mechanism):
+
+- At most 2 subagents may be active concurrently. Before spawning a new one, verify fewer than 2 are still running.
+- If a task needs more than 2 subagents, queue them: wait for an active subagent to finish before launching the next.
+- This limit applies regardless of subagent type or how the work is parallelized.
+
 ---
