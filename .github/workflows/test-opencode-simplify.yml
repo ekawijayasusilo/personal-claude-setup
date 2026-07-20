@@ -1,0 +1,175 @@
+# Throwaway END-TO-END repro for ce-simplify-code. Drop in ANY repo you own at
+# .github/workflows/opencode-simplify-repro.yml, commit to the default branch,
+# run manually from the Actions tab. Delete when done.
+#
+# Contrast with ce-code-review: ce-simplify-code dispatches only THREE reviewer
+# subagents (code-reuse, code-quality, efficiency) and runs them IN PARALLEL, so
+# it should finish far faster than review's 6 sequential reviewers.
+#
+# NOTE: ce-simplify-code is a MUTATING skill — it edits files directly and runs
+# typecheck/tests. That is fine here: throwaway runner, nothing is pushed
+# (persist-credentials: false, contents: read). We only read the run log.
+#
+# Self-contained: fabricates its own verbose-but-simplifiable diff.
+
+name: opencode-simplify-repro
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: opencode-simplify-repro-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  simplify-repro:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OPENCODE_CONFIG_CONTENT: |
+        {
+          "plugin": ["compound-engineering@git+https://github.com/EveryInc/compound-engineering-plugin.git"]
+        }
+      OPENCODE_LOG_LEVEL: debug
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install opencode CLI
+        run: |
+          curl -fsSL https://opencode.ai/install | bash
+          echo "$HOME/.opencode/bin" >> "$GITHUB_PATH"
+
+      # Fabricate a diff full of obvious simplification opportunities so all
+      # three reviewers (code-reuse, code-quality, efficiency) have work.
+      - name: Fabricate a verbose-but-simplifiable diff
+        run: |
+          git config user.email "probe@example.com"
+          git config user.name "probe"
+
+          mkdir -p probe_src
+
+          # --- baseline commit (empty module) ---
+          printf '# utils\n' > probe_src/verbose_utils.py
+          git add probe_src/verbose_utils.py
+          git commit -q -m "probe: baseline"
+
+          # --- verbose version under review ---
+          cat > probe_src/verbose_utils.py <<'CHANGE_EOF'
+          def get_active_names(users):
+              result = []
+              for u in users:
+                  if u["active"] == True:
+                      result.append(u["name"])
+                  else:
+                      continue
+              return result
+
+          def total(items):
+              s = 0
+              for i in items:
+                  s = s + i
+              return s
+
+          def describe(x):
+              if x > 0:
+                  return "positive"
+              else:
+                  if x < 0:
+                      return "negative"
+                  else:
+                      return "zero"
+
+          def first_or_none(items):
+              if len(items) > 0:
+                  return items[0]
+              else:
+                  return None
+
+          def dedupe(items):
+              out = []
+              for i in items:
+                  if i not in out:
+                      out.append(i)
+              return out
+          CHANGE_EOF
+          git add probe_src/verbose_utils.py
+          git commit -q -m "probe: add verbose utils"
+
+          echo "=== diff under review (HEAD~1..HEAD) ==="
+          git diff HEAD~1..HEAD
+
+      - name: Write repro prompt
+        run: |
+          cat > "$RUNNER_TEMP/repro.md" <<'PROMPT_EOF'
+          You are testing the ce-simplify-code skill END TO END. You MUST invoke
+          the `ce-simplify-code` skill via the skill tool and let its FULL
+          pipeline run to completion: scope resolution, dispatch of its three
+          reviewer subagents (code-reuse, code-quality, efficiency), aggregation,
+          and its normal output.
+
+          Scope: the file probe_src/verbose_utils.py (the change in the most
+          recent commit, HEAD~1..HEAD). Inspect it with `git diff HEAD~1..HEAD`.
+
+          Do not commit, do not push, do not open a PR, do not post comments. The
+          skill may edit the file in the workspace — that is fine; just do not
+          publish anything.
+
+          Hard requirements:
+          - Actually CALL the skill tool for `ce-simplify-code`. Do not paraphrase
+            or emulate its stages in the main thread.
+          - Let the skill DISPATCH its three reviewer subagents. Do not collapse
+            them into the main thread.
+          - Do NOT self-declare "degraded" and fall back to a manual pass. If —
+            and only if — the skill tool returns an actual error, quote that error
+            verbatim and stop.
+
+          Final output, in this order:
+          1. The skill's normal result (what it changed / suggested).
+          2. A section titled DISPATCH_TRACE stating: how many reviewer subagents
+             you actually dispatched, each subagent's persona/role, the exact
+             subagent_type passed to the task tool, and whether they ran in
+             PARALLEL or sequentially. If you dispatched ZERO subagents, say so
+             plainly and explain why.
+          PROMPT_EOF
+          echo "=== repro.md ===" && cat "$RUNNER_TEMP/repro.md"
+
+      - name: Run ce-simplify-code end-to-end (DEBUG log, captured)
+        run: |
+          opencode run --log-level DEBUG --model opencode-go/deepseek-v4-pro \
+            "$(cat "$RUNNER_TEMP/repro.md")" 2>&1 | tee "$RUNNER_TEMP/run.log" || true
+
+      - name: Analyze dispatch (did the 3 subagents spawn, in parallel?)
+        run: |
+          LOG="$RUNNER_TEMP/run.log"
+          echo "======================================================"
+          echo " SIMPLIFY DISPATCH ANALYSIS"
+          echo "======================================================"
+
+          echo "--- (1) skill invocation ---"
+          grep -nE 'ce-simplify-code|Skill "ce-simplify' "$LOG" || echo "  (none matched)"
+
+          echo "--- (2) subagent dispatches (reviewer bullets / general agent) ---"
+          grep -nE '• .*Agent|✓ .*Agent|code-reuse|code-quality|efficiency|subagent_type|Unknown agent type' "$LOG" || echo "  (none matched)"
+
+          echo "--- (3) parallel vs sequential markers ---"
+          grep -nE 'parallel|concurrent|background|active-agent-limit|backpressure|Wait for all' "$LOG" || echo "  (none matched)"
+
+          echo "--- (4) DISPATCH_TRACE from the agent's own report ---"
+          grep -nA 20 'DISPATCH_TRACE' "$LOG" || echo "  (no DISPATCH_TRACE printed)"
+
+          echo "--- (5) errors / cancellation ---"
+          grep -nE 'error|Error|canceled|cancelled|timed out' "$LOG" || echo "  (none matched)"
+
+          echo "------------------------------------------------------"
+          DISPATCHES=$(grep -cE '• .*Agent' "$LOG" || true)
+          echo " Rough subagent-dispatch bullet count: ${DISPATCHES}"
+          echo "   expect ~3 (code-reuse, code-quality, efficiency) if it fans out"
+          echo "   0 => collapsed to main thread"
+          echo "======================================================"

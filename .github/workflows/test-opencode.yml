@@ -1,23 +1,24 @@
-# Throwaway END-TO-END repro. Drop in ANY repo you own (a dummy repo is ideal)
-# at .github/workflows/opencode-fullrepro.yml, commit to the default branch,
-# then run manually from the Actions tab. Delete when done.
+# ce-code-review full repro, but the model runs through DeepSeek's DIRECT API
+# (platform.deepseek.com), NOT the opencode-go gateway — testing whether direct
+# provider gives faster inference. Drop in ANY repo you own at
+# .github/workflows/opencode-fullrepro-dsdirect.yml, commit to the default
+# branch, run manually. Delete when done.
 #
-# Question it answers: when ce-code-review actually RUNS to completion, does it
-# fan out into reviewer SUBAGENTS (Stage 4 dispatch), or does it collapse to a
-# single main-thread review (CE #799/#1099)?
+# REQUIRES a new repo secret: DEEPSEEK_API_KEY  (create one at
+# https://platform.deepseek.com/ -> API keys). The old OPENCODE_API_KEY is for
+# the opencode-go gateway and is NOT used for the direct provider.
 #
-# It is fully self-contained: it fabricates its own buggy diff in the runner
-# workspace, so it does NOT need a real PR, android_template, or any repo
-# contents. Runs raw `opencode run --log-level DEBUG` and then greps the
-# captured log for actual subagent dispatches.
+# ⚠️ MODEL ID: DeepSeek's public API historically exposes `deepseek-chat` and
+# `deepseek-reasoner`. Confirm the exact id for "V4 Flash" in the DeepSeek
+# dashboard/model list and adjust `deepseek-v4-flash` below if it differs.
 
-name: opencode-fullrepro
+name: opencode-fullrepro-dsdirect
 
 on:
   workflow_dispatch:
 
 concurrency:
-  group: opencode-fullrepro-${{ github.ref }}
+  group: opencode-fullrepro-dsdirect-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -28,10 +29,26 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Direct DeepSeek provider (OpenAI-compatible) + the CE plugin. The
+      # provider block registers `deepseek/deepseek-v4-flash`; apiKey is read
+      # from the DEEPSEEK_API_KEY env via opencode's {env:...} interpolation.
       OPENCODE_CONFIG_CONTENT: |
         {
+          "provider": {
+            "deepseek": {
+              "npm": "@ai-sdk/openai-compatible",
+              "name": "DeepSeek Direct",
+              "options": {
+                "baseURL": "https://api.deepseek.com/v1",
+                "apiKey": "{env:DEEPSEEK_API_KEY}"
+              },
+              "models": {
+                "deepseek-v4-flash": { "name": "DeepSeek V4 Flash" }
+              }
+            }
+          },
           "plugin": ["compound-engineering@git+https://github.com/EveryInc/compound-engineering-plugin.git"]
         }
       OPENCODE_LOG_LEVEL: debug
@@ -45,9 +62,6 @@ jobs:
           curl -fsSL https://opencode.ai/install | bash
           echo "$HOME/.opencode/bin" >> "$GITHUB_PATH"
 
-      # Fabricate a real, COMPLEX-looking diff with genuine bugs so Stage 3
-      # selects multiple reviewer personas (correctness + security) and there is
-      # a real reason to fan out. Two local commits => HEAD~1..HEAD is the change.
       - name: Fabricate a buggy diff to review
         run: |
           git config user.email "probe@example.com"
@@ -55,7 +69,6 @@ jobs:
 
           mkdir -p probe_src
 
-          # --- baseline commit ---
           cat > probe_src/session_auth.py <<'BASE_EOF'
           def make_token(user_id):
               return f"tok-{user_id}"
@@ -63,7 +76,6 @@ jobs:
           git add probe_src/session_auth.py
           git commit -q -m "probe: baseline"
 
-          # --- the change under review (deliberately buggy) ---
           cat > probe_src/session_auth.py <<'CHANGE_EOF'
           import time
           import sqlite3
@@ -131,37 +143,38 @@ jobs:
           PROMPT_EOF
           echo "=== repro.md ===" && cat "$RUNNER_TEMP/repro.md"
 
-      - name: Run ce-code-review end-to-end (DEBUG log, captured)
+      - name: Run ce-code-review end-to-end (direct DeepSeek, DEBUG log)
         run: |
-          # Tee everything so the next step can analyze it even if opencode exits
-          # nonzero. Model matches production.
-          opencode run --log-level DEBUG --model opencode-go/deepseek-v4-pro \
+          echo "=== confirm the model is registered ==="
+          opencode models 2>/dev/null | grep -i deepseek || echo "(no deepseek models listed — check provider config / model id)"
+          echo "=== run ==="
+          opencode run --log-level DEBUG --model deepseek/deepseek-v4-flash \
             "$(cat "$RUNNER_TEMP/repro.md")" 2>&1 | tee "$RUNNER_TEMP/run.log" || true
 
-      - name: Analyze fan-out (did reviewer subagents actually spawn?)
+      - name: Analyze fan-out + timing
         run: |
           LOG="$RUNNER_TEMP/run.log"
           echo "======================================================"
-          echo " FAN-OUT ANALYSIS"
+          echo " FAN-OUT + PROVIDER ANALYSIS"
           echo "======================================================"
 
-          echo "--- (1) task tool invocations (subagent dispatches) ---"
-          grep -nE '"tool":[[:space:]]*"task"|subagent_type|\btask\b.*subagent|Task tool' "$LOG" || echo "  (none matched)"
+          echo "--- (0) which provider/model actually served ---"
+          grep -nE 'deepseek|provider|baseURL|api.deepseek.com|opencode-go' "$LOG" || echo "  (none matched)"
 
-          echo "--- (2) subagent session/agent markers ---"
-          # Child reviewer subagents surface as agent stream lines and dispatch bullets.
-          grep -nE 'agent:[[:space:]]*"(general|explore)"|• .*Agent|✓ .*Agent|Unknown agent type' "$LOG" || echo "  (none matched)"
+          echo "--- (1) skill invocation ---"
+          grep -nE 'ce-code-review|Skill "ce-code-review"' "$LOG" || echo "  (none matched)"
 
-          echo "--- (3) skill tool invocation for ce-code-review ---"
-          grep -nE 'ce-code-review|"tool":[[:space:]]*"skill"|\bskill\b tool|Skill' "$LOG" || echo "  (none matched)"
+          echo "--- (2) reviewer subagent dispatches ---"
+          grep -nE '• .*Agent|✓ .*Agent|subagent_type|Unknown agent type' "$LOG" || echo "  (none matched)"
 
-          echo "--- (4) DISPATCH_TRACE section from the agent's own report ---"
+          echo "--- (3) DISPATCH_TRACE from the agent's own report ---"
           grep -nA 20 'DISPATCH_TRACE' "$LOG" || echo "  (no DISPATCH_TRACE printed)"
 
+          echo "--- (4) auth / provider errors ---"
+          grep -nE 'error|Error|401|403|unauthorized|invalid api key|canceled|timed out' "$LOG" || echo "  (none matched)"
+
           echo "------------------------------------------------------"
-          DISPATCHES=$(grep -cE '"tool":[[:space:]]*"task"|• .*Agent' "$LOG" || true)
-          echo " Rough subagent-dispatch line count: ${DISPATCHES}"
-          echo " Read the full step log above for the definitive trace."
-          echo "   0 dispatches  => COLLAPSED to main thread (behavioral fix needed)"
-          echo "   N dispatches  => FANS OUT (pipeline works end-to-end)"
+          echo " Compare wall-clock of the run step vs the opencode-go run."
+          echo " If it still cancels at 25 min => model speed is the ceiling,"
+          echo " not the gateway. If it finishes => direct provider is faster."
           echo "======================================================"
