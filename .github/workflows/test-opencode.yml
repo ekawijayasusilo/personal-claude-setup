@@ -1,0 +1,192 @@
+# Throwaway diagnostic workflow. Drop in the CONSUMER repo at
+# .github/workflows/opencode-probe.yml, then run it manually from the
+# Actions tab (workflow_dispatch). Delete once debugging is done.
+#
+# Goal: find out WHY ce-code-review degrades under opencode by isolating
+# three unknowns, WITHOUT touching the production review workflow:
+#   1. Is the ce-code-review skill/command even exposed after plugin install? (CE #777)
+#   2. Can opencode's task tool dispatch the built-in `general` subagent at all?
+#   3. Does dispatching a CE reviewer persona name fail, and with what error? (CE #799/#1099)
+#
+# Two jobs run the SAME diagnostic prompt through two runtimes:
+#   - cli-probe:    raw `opencode run` (full log control)
+#   - action-probe: the same github action production uses
+# Compare the two logs.
+
+name: opencode-probe
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: opencode-probe-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Job 1 — raw opencode CLI. Cleanest logs; we control verbosity and can dump
+  # the version, resolved config, and any list subcommands opencode exposes.
+  # ---------------------------------------------------------------------------
+  cli-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Identical plugin config to production.
+      OPENCODE_CONFIG_CONTENT: |
+        {
+          "plugin": ["compound-engineering@git+https://github.com/EveryInc/compound-engineering-plugin.git"]
+        }
+      # Best-effort: bump log verbosity if opencode honours it.
+      OPENCODE_LOG_LEVEL: debug
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install opencode CLI
+        run: |
+          curl -fsSL https://opencode.ai/install | bash
+          echo "$HOME/.opencode/bin" >> "$GITHUB_PATH"
+
+      - name: Environment introspection (deterministic, best-effort)
+        run: |
+          echo "=== opencode version ==="
+          opencode --version || true
+          echo "=== opencode run --help (discover flags: --model, --variant, --print-logs?) ==="
+          opencode run --help || true
+          echo "=== any agent/skill list subcommands? (best-effort, non-fatal) ==="
+          opencode agent --help || true
+          opencode agent list || true
+          opencode skill --help || true
+          opencode skill list || true
+          opencode models 2>/dev/null | head -n 40 || true
+
+      - name: Write diagnostic prompt
+        run: |
+          cat > "$RUNNER_TEMP/probe.md" <<'PROMPT_EOF'
+          You are a DIAGNOSTIC probe, not a reviewer. Do not modify any files, do
+          not run git write commands, do not post comments. Your only output is a
+          structured report as your final text response. Work through every step
+          even if an earlier one fails, and report failures verbatim.
+
+          ## Step A — Environment
+          State the opencode version if you can determine it. List every SKILL,
+          COMMAND, and AGENT/SUBAGENT you currently have available. If you have a
+          tool or command to enumerate them, use it and paste the raw list. If you
+          cannot enumerate a category, say so explicitly.
+
+          ## Step B — Is ce-code-review reachable?
+          Report whether a skill or command named `ce-code-review` exists in your
+          available set. Then attempt to load/invoke it in mode:agent against the
+          current working tree (there is no PR; a trivial or empty diff is fine —
+          we only care whether it LOADS and starts dispatching). Report exactly:
+          (1) does it exist, (2) did it load, (3) what did it start doing, (4) if
+          you could NOT invoke it, quote the exact reason/error.
+
+          ## Step C — Can the task tool dispatch a generic subagent?
+          Independently of the skill, call the `task` tool with
+          subagent_type "general" and the prompt: `Reply with exactly: PONG-7413`.
+          Report: did the dispatch succeed, and what text came back? Quote any
+          error verbatim.
+
+          ## Step D — Does a CE reviewer persona name dispatch?
+          Call the `task` tool with subagent_type "correctness" (a CE reviewer
+          persona name) and prompt `Reply with exactly: OK`. This is EXPECTED to
+          fail — we want the exact error string. Quote it verbatim. Then repeat
+          with subagent_type "explore" (a known built-in) and report the result.
+
+          ## Final report format
+          Return a plain-text report with these exact headers, one short block each:
+          VERSION:
+          AVAILABLE_SKILLS:
+          AVAILABLE_COMMANDS:
+          AVAILABLE_AGENTS:
+          CE_CODE_REVIEW_EXISTS:
+          CE_CODE_REVIEW_LOAD_RESULT:
+          TASK_GENERAL_RESULT:
+          TASK_CORRECTNESS_RESULT:
+          TASK_EXPLORE_RESULT:
+          CONCLUSION:
+          PROMPT_EOF
+          echo "=== prompt.md ===" && cat "$RUNNER_TEMP/probe.md"
+
+      - name: Run opencode probe (raw CLI)
+        run: |
+          # --variant may not be a CLI flag; --help above tells us. Model matches prod.
+          opencode run --model opencode-go/deepseek-v4-pro "$(cat "$RUNNER_TEMP/probe.md")"
+
+  # ---------------------------------------------------------------------------
+  # Job 2 — the production github action, same prompt. On workflow_dispatch
+  # there is no PR to comment on; we only read the run log. It may warn about a
+  # missing PR context — that is fine, we want the agent/tool behavior.
+  # ---------------------------------------------------------------------------
+  action-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: anomalyco/opencode/github@70b56a0a93d366889cae950379cc9d2537148fa2 # v1.18.2
+        env:
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENCODE_CONFIG_CONTENT: |
+            {
+              "plugin": ["compound-engineering@git+https://github.com/EveryInc/compound-engineering-plugin.git"]
+            }
+        with:
+          model: opencode-go/deepseek-v4-pro
+          variant: max
+          use_github_token: true
+          prompt: |
+            You are a DIAGNOSTIC probe, not a reviewer. Do not modify any files,
+            do not run git write commands, do not post comments. Your only output
+            is a structured report as your final text response. Work through every
+            step even if an earlier one fails, and report failures verbatim.
+
+            ## Step A — Environment
+            State the opencode version if you can determine it. List every SKILL,
+            COMMAND, and AGENT/SUBAGENT you currently have available. If you have a
+            tool or command to enumerate them, use it and paste the raw list. If
+            you cannot enumerate a category, say so explicitly.
+
+            ## Step B — Is ce-code-review reachable?
+            Report whether a skill or command named `ce-code-review` exists in your
+            available set. Then attempt to load/invoke it in mode:agent against the
+            current working tree (a trivial or empty diff is fine — we only care
+            whether it LOADS and starts dispatching). Report exactly: (1) does it
+            exist, (2) did it load, (3) what did it start doing, (4) if you could
+            NOT invoke it, quote the exact reason/error.
+
+            ## Step C — Can the task tool dispatch a generic subagent?
+            Independently of the skill, call the `task` tool with subagent_type
+            "general" and the prompt: `Reply with exactly: PONG-7413`. Report: did
+            the dispatch succeed, and what text came back? Quote any error verbatim.
+
+            ## Step D — Does a CE reviewer persona name dispatch?
+            Call the `task` tool with subagent_type "correctness" (a CE reviewer
+            persona name) and prompt `Reply with exactly: OK`. This is EXPECTED to
+            fail — we want the exact error string. Quote it verbatim. Then repeat
+            with subagent_type "explore" (a known built-in) and report the result.
+
+            ## Final report format
+            Return a plain-text report with these exact headers, one short block each:
+            VERSION:
+            AVAILABLE_SKILLS:
+            AVAILABLE_COMMANDS:
+            AVAILABLE_AGENTS:
+            CE_CODE_REVIEW_EXISTS:
+            CE_CODE_REVIEW_LOAD_RESULT:
+            TASK_GENERAL_RESULT:
+            TASK_CORRECTNESS_RESULT:
+            TASK_EXPLORE_RESULT:
+            CONCLUSION:
