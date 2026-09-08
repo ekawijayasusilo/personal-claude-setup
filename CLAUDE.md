@@ -102,4 +102,14 @@ When spawning subagents (via the Agent tool or any other mechanism):
 - If a task needs more than 2 subagents, queue them: wait for an active subagent to finish before launching the next.
 - This limit applies regardless of subagent type or how the work is parallelized.
 
+## 7. Pull Requests Open as Draft
+
+**Every PR you open must be created in draft state.**
+
+When pushing a branch and opening a PR on GitHub:
+
+- Always pass `--draft` to `gh pr create`.
+- Never mark a PR ready for review on your own — I promote it out of draft myself.
+- This applies to every repo and every PR, including small or trivial ones.
+
 ---
