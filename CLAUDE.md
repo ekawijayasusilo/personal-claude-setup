@@ -18,12 +18,11 @@ Before implementing:
 
 Minimum code that solves the problem. Nothing speculative.
 
-- No features beyond what was asked.
 - Introduce abstractions only when they simplify the current implementation, improve testability, or support an existing reuse need.
 - No flexibility or configurability for hypothetical future requirements.
 - Handle plausible failures, especially at external boundaries. Avoid defensive checks for conditions already guaranteed by established internal contracts.
 - When structure is warranted, keep modules loosely coupled and testable.
-- Optimize for clarity rather than line count.
+- Optimize for clarity & readability of the code rather than line count.
 
 Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
 
@@ -34,9 +33,7 @@ Touch only what you must. Clean up only your own mess.
 When editing existing code:
 
 - Don't "improve" adjacent code, comments, or formatting outside what requested.
-- Match existing style, even if you'd do it differently.
 - Comment only where the reasoning isn't obvious: explain why, not what.
-- Remove imports, variables, functions, and files made unused by your changes.
 
 ## 4. Goal-Driven Execution
 
@@ -56,7 +53,7 @@ For nontrivial multi-step tasks, state a brief plan:
 3. [Step] → verify: [check]
 ```
 
-Run relevant tests and required project checks. Stop when the success criteria are met and those checks pass.
+Run relevant tests and required project checks.
 
 If verification is blocked, report what passed, what remains unverified, and why.
 
@@ -98,7 +95,7 @@ For explanations, plans, research results, and reports—in chat or HTML/Markdow
 - Use visuals when they improve understanding or reduce reading effort. Choose formats supported by the destination, and avoid duplicating the full explanation in both prose and a visual.
 - Keep paragraphs focused on one idea. Divide longer outputs into meaningful sections with descriptive headings.
 - Callouts (> **Note**, > **Warning**) to highlight key conclusions, consequential caveats, or required actions.
-- Emoji as status markers (✅ ⚠️ ❌ 💡) to aid scanning, not decoration.
+- Emoji as status markers to aid scanning, not decoration.
 - Cut preamble and unnecessary restatement. Preserve the reasoning, evidence, and uncertainty needed to assess the conclusion.
 - In long reports, keep essential information in the main body and move optional detail to an appendix or collapsible section where supported.
 - End with what the reader does next: decision needed, open questions, or next step.
