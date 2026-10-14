@@ -89,4 +89,20 @@ When pushing a branch and opening a PR on GitHub:
 - Never mark a PR ready for review on your own — I promote it out of draft myself.
 - This applies to every repo and every PR, including small or trivial ones.
 
+## 8. Reader-First Output
+
+For explanations, plans, research results, and reports—in chat or HTML/Markdown documents—make the output easy to skim and understand. For longer outputs, aim for the reader to grasp the main message within 30 seconds from the opening, headings, and emphasized points.
+
+- **BLUF**: open with the answer, recommendation, or decision needed. Details follow.
+- Match form to content shape: comparisons → table; flows, architecture, sequences → diagram (Mermaid in MD, inline SVG in HTML, ASCII in chat); parallel items → bullets; reasoning chains → short prose. Use the simplest format that makes the information clear.
+- Use visuals when they improve understanding or reduce reading effort. Choose formats supported by the destination, and avoid duplicating the full explanation in both prose and a visual.
+- Keep paragraphs focused on one idea. Divide longer outputs into meaningful sections with descriptive headings.
+- Callouts (> **Note**, > **Warning**) to highlight key conclusions, consequential caveats, or required actions.
+- Emoji as status markers (✅ ⚠️ ❌ 💡) to aid scanning, not decoration.
+- Cut preamble and unnecessary restatement. Preserve the reasoning, evidence, and uncertainty needed to assess the conclusion.
+- In long reports, keep essential information in the main body and move optional detail to an appendix or collapsible section where supported.
+- End with what the reader does next: decision needed, open questions, or next step.
+
+Formatting should reduce reading effort without adding clutter or fragmenting the explanation.
+
 ---
